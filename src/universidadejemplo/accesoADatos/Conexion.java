@@ -4,11 +4,12 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import universidadejemplo.Entidades.Alumno;
 
 public class Conexion {
     
     
-    private static final String URL="jdbc:mariadb://localhost/";
+    private static final String URL="jdbc.mariadb://localhost:3306/";
     private static final String DB = "universidad ulp";
     private static final  String USUARIO = "root";
     private static String PASSWORD = "";
@@ -34,7 +35,8 @@ public class Conexion {
 
             }
 
-        } return connection; 
+        }
+        return connection;
 
     }
 

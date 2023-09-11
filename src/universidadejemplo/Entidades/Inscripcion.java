@@ -4,7 +4,7 @@ package universidadejemplo.Entidades;
 
 public class Inscripcion {
     
-    private int idDescripcion;
+    private int idInscripcion;
     private Alumno alumno;
     private Materia materia;
     private double nota;
@@ -13,7 +13,7 @@ public class Inscripcion {
     }
 
     public Inscripcion(int idDescripcion, Alumno alumno, Materia materia, double nota) {
-        this.idDescripcion = idDescripcion;
+        this.idInscripcion = idDescripcion;
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
@@ -25,12 +25,12 @@ public class Inscripcion {
         this.nota = nota;
     }
 
-    public int getIdDescripcion() {
-        return idDescripcion;
+    public int getIdInscripcion() {
+        return idInscripcion;
     }
 
-    public void setIdDescripcion(int idDescripcion) {
-        this.idDescripcion = idDescripcion;
+    public void setIdInscripcion(int idInscripcion) {
+        this.idInscripcion = idInscripcion;
     }
 
     public Alumno getAlumno() {

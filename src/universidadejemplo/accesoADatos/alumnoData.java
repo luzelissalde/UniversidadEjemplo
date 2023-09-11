@@ -10,11 +10,11 @@ import java.util.List;
 
 
 
-public class alumnoData {
+public class AlumnoData {
     
     private Connection connection;
 
-    public alumnoData() {
+    public AlumnoData() {
 
         connection = Conexion.getConexion();
     }

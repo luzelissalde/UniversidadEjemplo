@@ -91,11 +91,6 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         });
 
         jTxDocumento.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jTxDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTxDocumentoMouseClicked(evt);
-            }
-        });
 
         jTxNombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
 
@@ -270,7 +265,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
             try {
                 alumno = alumnos.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
                 alumnos.eliminarAlumno(alumno.getIdAlumno());
-                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: "+alumno.getNombre()+alumno.getApellido());
+                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: " + alumno.getNombre() + alumno.getApellido());
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
             }
@@ -280,14 +275,14 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
         alumno = new AlumnoData();
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        if(jTxDocumento.getText().isEmpty()||jTxApellido.getText().isEmpty()|| jTxNombre.getText().isEmpty()||jDFecha.getDate().toString().isEmpty()){
+        if (jTxDocumento.getText().isEmpty() || jTxApellido.getText().isEmpty() || jTxNombre.getText().isEmpty() || jDFecha.getDate().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
-        }else{
+        } else {
             try {
-                Alumno jorge = new Alumno(Integer.parseInt(jTxDocumento.getText()) , jTxNombre.getText(), jTxApellido.getText(), LocalDate.parse(formato.format(jDFecha.getDate())), jRadioEstado.isSelected());
+                Alumno jorge = new Alumno(Integer.parseInt(jTxDocumento.getText()), jTxNombre.getText(), jTxApellido.getText(), LocalDate.parse(formato.format(jDFecha.getDate())), jRadioEstado.isSelected());
                 alumno.guardarAlumno(jorge);
             } catch (HeadlessException | NumberFormatException e) {
-                
+
                 JOptionPane.showMessageDialog(null, "Error al cargar el Alumno " + e.getMessage());
             }
         }
@@ -298,32 +293,35 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-       alumno = new AlumnoData();
-       SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        if(jTxDocumento.getText().isEmpty()||jTxApellido.getText().isEmpty()|| jTxNombre.getText().isEmpty()||jDFecha.getDate().toString().isEmpty()){
+        alumno = new AlumnoData();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        if (jTxDocumento.getText().isEmpty() || jTxApellido.getText().isEmpty() || jTxNombre.getText().isEmpty() || jDFecha.getDate().toString().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
-        }else{
+        } else {
             try {
                 Alumno jorge = alumno.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
-//                        .parse(formato.format(jDFecha.getDate())), jRadioEstado.isSelected());
-                alumno.modificarAlumno(jorge);
+                jorge.setDni(Integer.parseInt(jTxDocumento.getText()));
+                jorge.setApellido(jTxApellido.getText());
+                jorge.setNombre(jTxNombre.getText());
+                jorge.setFechaNac(LocalDate.parse(formato.format(jDFecha.getDate())));
+                jorge.setActivo(jRadioEstado.isSelected());
+
+                String si = "SI";
+                String no = "NO";
+                String cancelar = "Cancelar";
+                Object[] opciones = {si, no};
+                int confirmacion = JOptionPane.showOptionDialog(this, "Desea modificar el Documento?", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, si);
+                System.out.println(confirmacion);
+                if (confirmacion == 0) {
+                    alumno.modificarAlumno(jorge);
+                }
             } catch (HeadlessException | NumberFormatException e) {
-                
+
                 JOptionPane.showMessageDialog(null, "Error al cargar el Alumno " + e.getMessage());
             }
         }
-       
-    }//GEN-LAST:event_jBGuardarActionPerformed
 
-    private void jTxDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxDocumentoMouseClicked
-         if(!jTxDocumento.getText().isEmpty()){
-             String si="SI";
-             String no="NO";
-             String cancelar= "Cancelar";
-             Object[] opciones={si,no};
-            int confirmacion = JOptionPane.showOptionDialog(this,"Desea modificar el Documento?", "",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,null,opciones,si);
-        }
-    }//GEN-LAST:event_jTxDocumentoMouseClicked
+    }//GEN-LAST:event_jBGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

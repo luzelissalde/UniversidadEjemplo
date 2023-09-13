@@ -64,13 +64,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMAlumno);
 
         jMMateria.setText("Materia");
-        jMMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMMateriaActionPerformed(evt);
-            }
-        });
 
         jMFormularioMateria.setText("Formulario de Materia");
+        jMFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFormularioMateriaActionPerformed(evt);
+            }
+        });
         jMMateria.add(jMFormularioMateria);
 
         jMenuBar1.add(jMMateria);
@@ -78,6 +78,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMAdministracion.setText("Administracion");
 
         jMManejoInscripcion.setText("Manejo de Inscripcion");
+        jMManejoInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMManejoInscripcionActionPerformed(evt);
+            }
+        });
         jMAdministracion.add(jMManejoInscripcion);
 
         jMManipulacionNotas.setText("Manipulacion de notas");
@@ -120,14 +125,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(alumnoView);
     }//GEN-LAST:event_jMFormularioAlumnoActionPerformed
 
-    private void jMMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMMateriaActionPerformed
+    private void jMFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioMateriaActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         vistaMateria materiaView = new vistaMateria();
         materiaView.setVisible(true);
         escritorio.add(materiaView);
         escritorio.moveToFront(materiaView);
-    }//GEN-LAST:event_jMMateriaActionPerformed
+    }//GEN-LAST:event_jMFormularioMateriaActionPerformed
+
+    private void jMManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManejoInscripcionActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        VistaFormularioInscripcion FormularioView = new VistaFormularioInscripcion();
+        FormularioView.setVisible(true);
+        escritorio.add(FormularioView);
+        escritorio.moveToFront(FormularioView);
+    }//GEN-LAST:event_jMManejoInscripcionActionPerformed
 
     /**
      * @param args the command line arguments

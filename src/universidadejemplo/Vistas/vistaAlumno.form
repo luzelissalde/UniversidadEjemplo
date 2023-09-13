@@ -260,9 +260,6 @@
               <Font name="Roboto" size="18" style="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTxDocumentoMouseClicked"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTxNombre">
           <Properties>

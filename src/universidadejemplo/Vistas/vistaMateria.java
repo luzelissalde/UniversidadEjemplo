@@ -4,15 +4,20 @@
  */
 package universidadejemplo.Vistas;
 
+import java.awt.HeadlessException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+import universidadejemplo.Entidades.*;
+import universidadejemplo.accesoADatos.*;
+
 /**
  *
  * @author USURIO
  */
 public class vistaMateria extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Alumno
-     */
+    private MateriaData materia;
     public vistaMateria() {
         initComponents();
     }
@@ -83,6 +88,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
 
         jBNuevo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBEliminar.setText("Eliminar");
@@ -191,6 +201,21 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+      materia = new MateriaData();
+        if (jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
+        } else {
+            try {
+                Materia mate= new Materia( jTxNombreMateria.getText(), Integer.parseInt(jTxAnio.getText()), jRadioEstadoMateria.isSelected());
+                materia.guardarMateria(mate);
+            } catch (HeadlessException | NumberFormatException e) {
+
+                JOptionPane.showMessageDialog(null, "Error al cargar el materia" + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jBNuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

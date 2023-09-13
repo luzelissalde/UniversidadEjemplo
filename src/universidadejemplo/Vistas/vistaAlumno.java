@@ -286,7 +286,6 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
             try {
                 Alumno jorge = new Alumno(Integer.parseInt(jTxDocumento.getText()) , jTxNombre.getText(), jTxApellido.getText(), LocalDate.parse(formato.format(jDFecha.getDate())), jRadioEstado.isSelected());
                 alumno.guardarAlumno(jorge);
-                JOptionPane.showMessageDialog(null, "Alumno Agregado correctamente");
             } catch (HeadlessException | NumberFormatException e) {
                 
                 JOptionPane.showMessageDialog(null, "Error al cargar el Alumno " + e.getMessage());
@@ -299,12 +298,30 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+       alumno = new AlumnoData();
+       SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        if(jTxDocumento.getText().isEmpty()||jTxApellido.getText().isEmpty()|| jTxNombre.getText().isEmpty()||jDFecha.getDate().toString().isEmpty()){
+            JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
+        }else{
+            try {
+                Alumno jorge = alumno.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
+//                        .parse(formato.format(jDFecha.getDate())), jRadioEstado.isSelected());
+                alumno.modificarAlumno(jorge);
+            } catch (HeadlessException | NumberFormatException e) {
+                
+                JOptionPane.showMessageDialog(null, "Error al cargar el Alumno " + e.getMessage());
+            }
+        }
        
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jTxDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxDocumentoMouseClicked
          if(!jTxDocumento.getText().isEmpty()){
-            int confirmacion = JOptionPane.showConfirmDialog(null,"Desea modificar el Documento?", "",JOptionPane.YES_NO_OPTION);
+             String si="SI";
+             String no="NO";
+             String cancelar= "Cancelar";
+             Object[] opciones={si,no};
+            int confirmacion = JOptionPane.showOptionDialog(this,"Desea modificar el Documento?", "",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,null,opciones,si);
         }
     }//GEN-LAST:event_jTxDocumentoMouseClicked
 

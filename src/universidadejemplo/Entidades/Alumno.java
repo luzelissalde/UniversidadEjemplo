@@ -1,12 +1,10 @@
-
 package universidadejemplo.Entidades;
 
 import java.time.LocalDate;
 
-
 public class Alumno {
-    private int dni;
     private int idAlumno;
+    private int dni;
     private String nombre;
     private String apellido;
     private LocalDate fechaNac;
@@ -15,23 +13,24 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(int idAlumno, String nombre, String apellido, LocalDate fechaNac, boolean activo) {
+    public Alumno(int idAlumno, int dni, String nombre, String apellido, LocalDate fechaNac, boolean activo) {
         this.idAlumno = idAlumno;
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
         this.activo = activo;
-       
     }
 
-    public Alumno(String nombre, String apellido, LocalDate fechaNac, boolean activo, int dni) {
+    public Alumno(int dni, String nombre, String apellido, LocalDate fechaNac, boolean activo) {
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
         this.activo = activo;
-         this.dni= dni;
     }
 
+   
     public int getDni() {
         return dni;
     }
@@ -39,7 +38,6 @@ public class Alumno {
     public void setDni(int dni) {
         this.dni = dni;
     }
-    
 
     public int getIdAlumno() {
         return idAlumno;
@@ -86,8 +84,4 @@ public class Alumno {
         return "Alumno{" + "dni=" + dni + ", idAlumno=" + idAlumno + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNac=" + fechaNac + ", activo=" + activo + '}';
     }
 
-    
-    
-    
-    
 }

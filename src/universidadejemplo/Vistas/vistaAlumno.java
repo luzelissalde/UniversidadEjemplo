@@ -4,7 +4,9 @@
  */
 package universidadejemplo.Vistas;
 
+import java.awt.HeadlessException;
 import java.sql.*;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.*;
 import universidadejemplo.accesoADatos.*;
@@ -95,6 +97,11 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
 
         jBNuevo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBEliminar.setText("Eliminar");
@@ -230,7 +237,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                 jTxDocumento.setText(String.valueOf(jorge.getDni()));
                 jTxApellido.setText(jorge.getApellido());
                 jTxNombre.setText(jorge.getNombre());
-                jRadioEstado.setEnabled(jorge.isActivo());
+                jRadioEstado.setSelected(jorge.isActivo());
                 jDFecha.setDate(Date.valueOf(jorge.getFechaNac()));
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
@@ -239,8 +246,37 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        // TODO add your handling code here:
+        AlumnoData alumnos = new AlumnoData();
+        Alumno alumno = new Alumno();
+        if (jTxDocumento.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese un numero de documento correcto");
+        } else {
+            try {
+                alumno = alumnos.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
+                alumnos.eliminarAlumno(alumno.getIdAlumno());
+                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: "+alumno.getNombre()+alumno.getApellido());
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
+            }
+        }
     }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        alumno = new AlumnoData();
+        if(jTxDocumento.getText().isEmpty()||jTxApellido.getText().isEmpty()|| jTxNombre.getText().isEmpty()||jDFecha.getDate().toString().isEmpty()){
+            JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
+        }else{
+            try {
+                Alumno jorge = new Alumno(Integer.parseInt(jTxDocumento.getText()) , jTxNombre.getText(), jTxApellido.getText(), LocalDate.of(jDFecha.getDate().getYear(),jDFecha.getDate().getMonth(),jDFecha.getDate().getDay()), true);
+                alumno.guardarAlumno(jorge);
+                System.out.println(jDFecha.getDate().getYear());
+                JOptionPane.showMessageDialog(null, "Alumno Agregado correctamente");
+            } catch (HeadlessException | NumberFormatException e) {
+                
+                JOptionPane.showMessageDialog(null, "Error al cargar el Alumno " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jBNuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

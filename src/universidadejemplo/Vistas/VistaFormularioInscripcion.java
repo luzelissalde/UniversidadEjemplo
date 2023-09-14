@@ -4,7 +4,9 @@
  */
 package universidadejemplo.Vistas;
 
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.accesoADatos.AlumnoData;
 
@@ -18,9 +20,16 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
     public VistaFormularioInscripcion() {
         initComponents();
         cargarCombo();
+        cargarTabla();
+        radioBotones();
         setClosable(true);
         setMaximizable(true);
-        setLocation(50, 50);
+       
+    }
+    public void radioBotones(){
+        ButtonGroup grupo = new ButtonGroup();
+        grupo.add(jRMatInscriptas);
+        grupo.add(jRMatNoInscriptas);
     }
 
     /**
@@ -67,7 +76,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         jBNuevo.setText("Nuevo");
 
         jBGuardar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Anular Inscricion");
 
         jBSalir.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBSalir.setText("Salir");
@@ -184,9 +193,16 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         alumno = new AlumnoData();
         DefaultComboBoxModel<Alumno> mdlCombo = new DefaultComboBoxModel(alumno.listarAlumnos().toArray());
         cbAlumnos.setModel(mdlCombo);
-        
-        
     }
+    
+    public void cargarTabla(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        jTabla.setModel(modelo);
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Nota");
+    }
+           
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cbAlumnos;

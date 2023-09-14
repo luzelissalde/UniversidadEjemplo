@@ -42,7 +42,7 @@ public class MateriaData {
   
     public Materia buscarMateria(int id) {
         Materia materia = null;
-        String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
+        String sql = "SELECT idMateria, nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
@@ -71,7 +71,7 @@ public class MateriaData {
     
     public void modificarMateria(Materia materia) {
 
-        String sql = "UPDATE materia SET nombre = ? , anio = ? WHERE idMateria = ?";
+        String sql = "UPDATE materia SET nombre = ? , año = ? WHERE idMateria = ?";
         PreparedStatement ps = null;
 
         try {

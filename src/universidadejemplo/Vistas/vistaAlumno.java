@@ -22,6 +22,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
 
     public vistaAlumno() {
         initComponents();
+        setClosable(true);
     }
 
     /**
@@ -242,9 +243,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Por favor ingrese un numero de documento correcto");
         } else {
             try {
-                System.out.println(jTxDocumento.getText());
                 Alumno jorge = alumno.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
-                System.out.println(jorge);
                 jTxDocumento.setText(String.valueOf(jorge.getDni()));
                 jTxApellido.setText(jorge.getApellido());
                 jTxNombre.setText(jorge.getNombre());
@@ -310,7 +309,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                 String no = "NO";
                 String cancelar = "Cancelar";
                 Object[] opciones = {si, no};
-                int confirmacion = JOptionPane.showOptionDialog(this, "Desea modificar el Documento?", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, si);
+                int confirmacion = JOptionPane.showOptionDialog(this, "¿Desea modificar los datos del Alumno?", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, si);
                 System.out.println(confirmacion);
                 if (confirmacion == 0) {
                     alumno.modificarAlumno(jorge);

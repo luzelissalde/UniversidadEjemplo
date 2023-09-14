@@ -5,8 +5,6 @@
 package universidadejemplo.Vistas;
 
 import java.awt.HeadlessException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.*;
 import universidadejemplo.accesoADatos.*;
@@ -16,10 +14,12 @@ import universidadejemplo.accesoADatos.*;
  * @author USURIO
  */
 public class vistaMateria extends javax.swing.JInternalFrame {
-
+    
     private MateriaData materia;
+    
     public vistaMateria() {
         initComponents();
+        setClosable(true);
     }
 
     /**
@@ -96,12 +96,27 @@ public class vistaMateria extends javax.swing.JInternalFrame {
 
         jBEliminar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBGuardar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
         jBSalir.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,23 +214,79 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add your handling code here:
+        materia = new MateriaData();
+        if (jTxCodigo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el codigo correcto");
+        } else {
+            try {
+                Materia mate = materia.buscarMateria(Integer.parseInt(jTxCodigo.getText()));
+                jTxNombreMateria.setText(mate.getNombre());
+                jTxAnio.setText(String.valueOf(mate.getAnio()));
+                jRadioEstadoMateria.setSelected(mate.isActivo());
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "La materia ingresado no existe o es incorrecto el codigo");
+            }
+        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
-      materia = new MateriaData();
+        materia = new MateriaData();
         if (jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
         } else {
             try {
-                Materia mate= new Materia( jTxNombreMateria.getText(), Integer.parseInt(jTxAnio.getText()), jRadioEstadoMateria.isSelected());
+                Materia mate = new Materia(jTxNombreMateria.getText(), Integer.parseInt(jTxAnio.getText()), jRadioEstadoMateria.isSelected());
                 materia.guardarMateria(mate);
             } catch (HeadlessException | NumberFormatException e) {
-
+                
                 JOptionPane.showMessageDialog(null, "Error al cargar el materia" + e.getMessage());
             }
         }
     }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        materia = new MateriaData();
+        if (jTxCodigo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el codigo de la materia correcto");
+        } else {
+            try {
+                materia.eliminarMateria(Integer.parseInt(jTxCodigo.getText()));
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "La materia ingresada no existe o es incorrecta");
+            }
+        }
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        materia = new MateriaData();
+        if (jTxCodigo.getText().isEmpty() || jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
+        } else {
+            try {
+                Materia mate = materia.buscarMateria(Integer.parseInt(jTxCodigo.getText()));
+                mate.setIdMateria(Integer.parseInt(jTxCodigo.getText()));
+                mate.setNombre(jTxNombreMateria.getText());
+                mate.setAnio(Integer.parseInt(jTxAnio.getText()));
+                mate.setActivo(jRadioEstadoMateria.isSelected());
+                String si = "SI";
+                String no = "NO";
+                String cancelar = "Cancelar";
+                Object[] opciones = {si, no};
+                int confirmacion = JOptionPane.showOptionDialog(this, "¿Desea modificar los datos de la materia?", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, si);
+                System.out.println(confirmacion);
+                if (confirmacion == 0) {
+                    materia.modificarMateria(mate);
+                }
+            } catch (HeadlessException | NumberFormatException e) {
+                
+                JOptionPane.showMessageDialog(null, "Error al cargar la materia " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jBGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

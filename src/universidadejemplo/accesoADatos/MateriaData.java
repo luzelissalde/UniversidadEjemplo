@@ -110,7 +110,7 @@ public class MateriaData {
         }
     }
     
-    public List<Materia> listarAlumnos() {
+    public List<Materia> listarMateria() {
 
         List<Materia> materias = new ArrayList<>();
         try {

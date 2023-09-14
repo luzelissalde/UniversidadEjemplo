@@ -8,7 +8,10 @@ import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.Entidades.Alumno;
+import universidadejemplo.Entidades.Materia;
 import universidadejemplo.accesoADatos.AlumnoData;
+import universidadejemplo.accesoADatos.InscripcionData;
+import universidadejemplo.accesoADatos.MateriaData;
 
 /**
  *
@@ -16,7 +19,11 @@ import universidadejemplo.accesoADatos.AlumnoData;
  */
 public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
-   AlumnoData alumno;
+    AlumnoData alumno;
+    InscripcionData inscripcion;
+    MateriaData materia;
+    DefaultTableModel modelo = new DefaultTableModel();
+
     public VistaFormularioInscripcion() {
         initComponents();
         cargarCombo();
@@ -24,9 +31,10 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         radioBotones();
         setClosable(true);
         setMaximizable(true);
-       
+
     }
-    public void radioBotones(){
+
+    public void radioBotones() {
         ButtonGroup grupo = new ButtonGroup();
         grupo.add(jRMatInscriptas);
         grupo.add(jRMatNoInscriptas);
@@ -71,6 +79,11 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
         jRMatInscriptas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jRMatInscriptas.setText("Materias Inscriptas");
+        jRMatInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRMatInscriptasActionPerformed(evt);
+            }
+        });
 
         jBNuevo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBNuevo.setText("Nuevo");
@@ -95,6 +108,11 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
         jRMatNoInscriptas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jRMatNoInscriptas.setText("Materias no Inscriptas");
+        jRMatNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRMatNoInscriptasActionPerformed(evt);
+            }
+        });
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,20 +207,54 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
-    public void cargarCombo(){
+    private void jRMatInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMatInscriptasActionPerformed
+        inscripcion = new InscripcionData();
+        materia = new MateriaData();
+        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+
+        borrarFilas();
+        for (Materia prod : inscripcion.obtenerMateriasCursadas(alumn.getIdAlumno())) {
+
+            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+
+        }
+
+    }//GEN-LAST:event_jRMatInscriptasActionPerformed
+
+    private void jRMatNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMatNoInscriptasActionPerformed
+        inscripcion = new InscripcionData();
+        materia = new MateriaData();
+        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+
+        borrarFilas();
+        for (Materia prod : inscripcion.obtenerMateriasNOCursadas(alumn.getIdAlumno())) {
+
+            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+
+        }
+    }//GEN-LAST:event_jRMatNoInscriptasActionPerformed
+
+    public void cargarCombo() {
         alumno = new AlumnoData();
         DefaultComboBoxModel<Alumno> mdlCombo = new DefaultComboBoxModel(alumno.listarAlumnos().toArray());
         cbAlumnos.setModel(mdlCombo);
     }
-    
-    public void cargarTabla(){
-        DefaultTableModel modelo = new DefaultTableModel();
+
+    public void cargarTabla() {
+
         jTabla.setModel(modelo);
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Nota");
     }
-           
+
+    private void borrarFilas() {
+        int f = jTabla.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cbAlumnos;
@@ -235,4 +287,4 @@ comboBox = new JComboBox<>(items.toArray(new String[0]));
 
         getContentPane().setLayout(new FlowLayout());
         getContentPane().add(comboBox);
-*/
+ */

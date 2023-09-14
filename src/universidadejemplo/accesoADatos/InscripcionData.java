@@ -120,7 +120,7 @@ public class InscripcionData {
         return materias;
     }
     
-     public List<Materia> obtenerMateriasNOCursadas(int id) {
+    public List<Materia> obtenerMateriasNOCursadas(int id) {
 
         List<Materia> materias = new ArrayList<>();
         try {

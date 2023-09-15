@@ -18,7 +18,7 @@ import universidadejemplo.Entidades.*;
 public class InscripcionData {
 
     private Connection connection;
-    private AlumnoData AlumnoData;
+    private AlumnoData alumnodata;
     private MateriaData materiaData;
 
     public InscripcionData() {
@@ -35,7 +35,7 @@ public class InscripcionData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                insc.setIdInscripcion(rs.getInt("idAlumno"));
+                insc.setIdInscripcion(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Nota añadida con exito");
             }
             ps.close();
@@ -71,7 +71,7 @@ public class InscripcionData {
     }
     
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
-
+      alumnodata = new AlumnoData();
         List<Inscripcion> inscricion = new ArrayList<>();
         try {
             String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?";
@@ -81,9 +81,9 @@ public class InscripcionData {
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
 
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
+                insc.setIdInscripcion(rs.getInt("idInscripto"));
                 insc.setNota(rs.getDouble("nota"));
-                insc.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
+                insc.getAlumno().getIdAlumno(rs.getInt("idAlumno"));
                 insc.getMateria().setIdMateria(rs.getInt("idMateria"));
                 inscricion.add(insc);
             }
@@ -124,8 +124,11 @@ public class InscripcionData {
 
         List<Materia> materias = new ArrayList<>();
         try {
-            String sql = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion, materia"
-                    + " WHERE inscripcion.idMateria = materia.idMateria AND inscripcion.idAlumno != ?";
+            
+            String sql = "SELECT materia.idMateria, nombre, año FROM materia "
+                + "WHERE materia.idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
+//            String sql = "SELECT materia.idMateria, nombre, año FROM inscripcion, materia"
+//                    + " WHERE inscripcion.idMateria != materia.idMateria ";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -155,7 +158,7 @@ public class InscripcionData {
             int fila = ps.executeUpdate();
 
             if (fila == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó el alumno.");
+                JOptionPane.showMessageDialog(null, " Se eliminó la inscripcion.");
             }
             ps.close();
         } catch (SQLException e) {

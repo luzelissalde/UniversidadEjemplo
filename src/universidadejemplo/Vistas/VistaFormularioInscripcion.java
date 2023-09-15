@@ -7,11 +7,8 @@ package universidadejemplo.Vistas;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
-import universidadejemplo.Entidades.Alumno;
-import universidadejemplo.Entidades.Materia;
-import universidadejemplo.accesoADatos.AlumnoData;
-import universidadejemplo.accesoADatos.InscripcionData;
-import universidadejemplo.accesoADatos.MateriaData;
+import universidadejemplo.Entidades.*;
+import universidadejemplo.accesoADatos.*;
 
 /**
  *
@@ -28,6 +25,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         initComponents();
         cargarCombo();
         cargarTabla();
+        setMaximizable(true);
         radioBotones();
         setClosable(true);
         setMaximizable(true);
@@ -54,7 +52,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jRMatInscriptas = new javax.swing.JRadioButton();
         jBNuevo = new javax.swing.JButton();
-        jBGuardar = new javax.swing.JButton();
+        jAnular = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         cbAlumnos = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -79,6 +77,11 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
         jRMatInscriptas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jRMatInscriptas.setText("Materias Inscriptas");
+        jRMatInscriptas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jRMatInscriptasFocusGained(evt);
+            }
+        });
         jRMatInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRMatInscriptasActionPerformed(evt);
@@ -86,10 +89,20 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         });
 
         jBNuevo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBNuevo.setText("Nuevo");
+        jBNuevo.setText("Inscribir");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
-        jBGuardar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBGuardar.setText("Anular Inscricion");
+        jAnular.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jAnular.setText("Anular Inscricion");
+        jAnular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAnularActionPerformed(evt);
+            }
+        });
 
         jBSalir.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBSalir.setText("Salir");
@@ -100,6 +113,11 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         });
 
         cbAlumnos.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        cbAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlumnosActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,6 +126,11 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
         jRMatNoInscriptas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jRMatNoInscriptas.setText("Materias no Inscriptas");
+        jRMatNoInscriptas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jRMatNoInscriptasFocusGained(evt);
+            }
+        });
         jRMatNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRMatNoInscriptasActionPerformed(evt);
@@ -157,7 +180,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jBNuevo)
                                 .addGap(28, 28, 28)
-                                .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBSalir)))))
                 .addContainerGap(58, Short.MAX_VALUE))
@@ -184,7 +207,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
-                    .addComponent(jBGuardar)
+                    .addComponent(jAnular)
                     .addComponent(jBSalir))
                 .addGap(40, 40, 40))
         );
@@ -218,12 +241,14 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
             modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
 
         }
+        jBNuevo.setEnabled(false);
+        jAnular.setEnabled(true);
 
     }//GEN-LAST:event_jRMatInscriptasActionPerformed
 
     private void jRMatNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMatNoInscriptasActionPerformed
         inscripcion = new InscripcionData();
-        materia = new MateriaData();
+//        materia = new MateriaData();
         Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
 
         borrarFilas();
@@ -232,7 +257,88 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
             modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
 
         }
+        jBNuevo.setEnabled(true);
+        jAnular.setEnabled(false);
     }//GEN-LAST:event_jRMatNoInscriptasActionPerformed
+
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+        Inscripcion insc = new Inscripcion();
+        materia = new MateriaData();
+        inscripcion = new InscripcionData();
+
+        insc.setAlumno(alumn);
+        insc.setMateria(materia.buscarMateria((int) modelo.getValueAt(jTabla.getSelectedRow(), 0)));
+        insc.setNota(0);
+
+        inscripcion.guardarIncripcion(insc);
+
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnularActionPerformed
+        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+//        Inscripcion insc = new Inscripcion();
+//        materia = new MateriaData();
+        inscripcion = new InscripcionData();
+
+        inscripcion.borrarInscripcionMateriaAlumno(alumn.getIdAlumno(), (int) modelo.getValueAt(jTabla.getSelectedRow(), 0));
+    }//GEN-LAST:event_jAnularActionPerformed
+
+    private void jRMatNoInscriptasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRMatNoInscriptasFocusGained
+        inscripcion = new InscripcionData();
+//        materia = new MateriaData();
+        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+
+        borrarFilas();
+        for (Materia prod : inscripcion.obtenerMateriasNOCursadas(alumn.getIdAlumno())) {
+
+            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+
+        }
+        jBNuevo.setEnabled(true);
+        jAnular.setEnabled(false);
+    }//GEN-LAST:event_jRMatNoInscriptasFocusGained
+
+    private void jRMatInscriptasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRMatInscriptasFocusGained
+        inscripcion = new InscripcionData();
+        materia = new MateriaData();
+        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+
+        borrarFilas();
+        for (Materia prod : inscripcion.obtenerMateriasCursadas(alumn.getIdAlumno())) {
+
+            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+
+        }
+        jBNuevo.setEnabled(false);
+        jAnular.setEnabled(true);
+    }//GEN-LAST:event_jRMatInscriptasFocusGained
+
+    private void cbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlumnosActionPerformed
+        if (jRMatInscriptas.isSelected()) {
+            inscripcion = new InscripcionData();
+            materia = new MateriaData();
+            Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+
+            borrarFilas();
+            for (Materia prod : inscripcion.obtenerMateriasCursadas(alumn.getIdAlumno())) {
+
+                modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+
+            }
+        } else if (jRMatNoInscriptas.isSelected()) {
+            inscripcion = new InscripcionData();
+//        materia = new MateriaData();
+            Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+
+            borrarFilas();
+            for (Materia prod : inscripcion.obtenerMateriasNOCursadas(alumn.getIdAlumno())) {
+
+                modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+
+            }
+        }
+    }//GEN-LAST:event_cbAlumnosActionPerformed
 
     public void cargarCombo() {
         alumno = new AlumnoData();
@@ -245,7 +351,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         jTabla.setModel(modelo);
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Nota");
+        modelo.addColumn("Año");
     }
 
     private void borrarFilas() {
@@ -258,7 +364,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cbAlumnos;
-    private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jAnular;
     private javax.swing.JButton jBNuevo;
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
@@ -276,15 +382,14 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
 
 /*
-comboBox = new JComboBox<>(items.toArray(new String[0]));
-        comboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String selectedValue = comboBox.getSelectedItem().toString();
-                JOptionPane.showMessageDialog(null, "Opción seleccionada: " + selectedValue);
-            }
-        });
-
-        getContentPane().setLayout(new FlowLayout());
-        getContentPane().add(comboBox);
+int filaSeleccionada = jTalumno.getSelectedRow();
+        if(filaSeleccionada !=-1){
+            int matricula = (Integer)jTalumno.getValueAt(filaSeleccionada, 0);
+            String apellido = (String)jTalumno.getValueAt(filaSeleccionada, 1);
+            String nombre = (String)jTalumno.getValueAt(filaSeleccionada, 2);
+            
+            jTmatricula.setText(matricula+"");
+            jTapellido.setText(apellido);
+            jTnombre.setText(nombre);
+        }
  */

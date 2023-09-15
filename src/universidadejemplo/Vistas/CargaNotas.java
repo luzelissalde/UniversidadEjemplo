@@ -4,17 +4,38 @@
  */
 package universidadejemplo.Vistas;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
+import universidadejemplo.Entidades.Alumno;
+import universidadejemplo.Entidades.Inscripcion;
+import universidadejemplo.Entidades.Materia;
+import universidadejemplo.accesoADatos.AlumnoData;
+import universidadejemplo.accesoADatos.InscripcionData;
+import universidadejemplo.accesoADatos.MateriaData;
+
 /**
  *
  * @author Micaela
  */
 public class CargaNotas extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form CargaDeNotas
-     */
+    AlumnoData alumno;
+    InscripcionData inscripcion;
+    MateriaData materia;
+    
+    private DefaultTableModel modelo = new DefaultTableModel (){
+        public boolean isCellEditable(int fila, int columna){
+            if (columna == 2){
+                return true;
+            }
+            return false;
+        }
+    };
+    
     public CargaNotas() {
         initComponents();
+        cargarCombo();
+        cargarTabla();
     }
 
     /**
@@ -31,7 +52,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jCBalumno = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTabla = new javax.swing.JTable();
         jBguardar = new javax.swing.JButton();
         jBsalir = new javax.swing.JButton();
 
@@ -47,8 +68,14 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jLabel2.setText("Seleccione un alumno:");
 
-        jTable1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jCBalumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBalumnoActionPerformed(evt);
+            }
+        });
+
+        jTabla.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -59,7 +86,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTabla);
 
         jBguardar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jBguardar.setText("Guardar");
@@ -132,15 +159,57 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBguardarActionPerformed
 
+    private void jCBalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBalumnoActionPerformed
+        // TODO add your handling code here:
+        
+        inscripcion = new InscripcionData();
+        materia = new MateriaData();
+        
+        Alumno alumn = (Alumno) jCBalumno.getSelectedItem();
+
+        
+        
+        borrarFilas();
+        for (Inscripcion prod : inscripcion.obtenerInscripcionesPorAlumno(alumn.getIdAlumno())) {
+           modelo.addRow(new Object[]{prod.getMateria().getIdMateria(), prod.getMateria().getNombre(), prod.getNota()});
+     
+
+        }
+    }//GEN-LAST:event_jCBalumnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBguardar;
     private javax.swing.JButton jBsalir;
-    private javax.swing.JComboBox<String> jCBalumno;
+    private javax.swing.JComboBox<Alumno> jCBalumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTabla;
     // End of variables declaration//GEN-END:variables
+
+    
+    public void cargarCombo() {
+        alumno = new AlumnoData();
+        DefaultComboBoxModel<Alumno> mdlCombo = new DefaultComboBoxModel(alumno.listarAlumnos().toArray());
+        jCBalumno.setModel(mdlCombo);
+    }
+    
+    public void cargarTabla() {
+
+        jTabla.setModel(modelo);
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Nota");
+    }
+
+    private void borrarFilas() {
+        int f = jTabla.getRowCount() - 1;
+        for (; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
 }
+
+

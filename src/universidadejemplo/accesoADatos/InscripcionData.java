@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.*;
 
-
 /**
  *
  * @author USURIO
@@ -45,7 +44,7 @@ public class InscripcionData {
 
         }
     }
-    
+
     public List<Inscripcion> obtenerInscripciones() {
 
         List<Inscripcion> inscricion = new ArrayList<>();
@@ -56,10 +55,13 @@ public class InscripcionData {
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
 
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                insc.setNota(rs.getDouble("nota"));
-                insc.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
-                insc.getMateria().setIdMateria(rs.getInt("idMateria"));
+                insc.setIdInscripcion(rs.getInt(1));
+                insc.setNota(rs.getDouble(2));
+                insc.getAlumno().setIdAlumno(rs.getInt(3));
+                insc.getMateria().setIdMateria(rs.getInt(4));
+                
+                
+                
                 inscricion.add(insc);
             }
             ps.close();
@@ -69,10 +71,10 @@ public class InscripcionData {
         }
         return inscricion;
     }
-    
+
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
 
-        List<Inscripcion> inscricion = new ArrayList<>();
+        List<Inscripcion> inscripcion = new ArrayList<>();
         try {
             String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
@@ -81,20 +83,24 @@ public class InscripcionData {
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
 
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
-                insc.setNota(rs.getDouble("nota"));
-                insc.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
-                insc.getMateria().setIdMateria(rs.getInt("idMateria"));
-                inscricion.add(insc);
+                insc.setIdInscripcion(rs.getInt(1));
+                insc.setNota(rs.getDouble(2));
+                Alumno alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt(3));
+                insc.setAlumno(alumno);
+                Materia materia = new Materia();
+                materia.setIdMateria(rs.getInt(4));
+                insc.setMateria(materia);
+                inscripcion.add(insc);
             }
             ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Inscripcion " + ex.getMessage());
         }
-        return inscricion;
+        return inscripcion;
     }
-    
+
     public List<Materia> obtenerMateriasCursadas(int id) {
 
         List<Materia> materias = new ArrayList<>();
@@ -119,7 +125,7 @@ public class InscripcionData {
         }
         return materias;
     }
-    
+
     public List<Materia> obtenerMateriasNOCursadas(int id) {
 
         List<Materia> materias = new ArrayList<>();
@@ -145,11 +151,11 @@ public class InscripcionData {
         return materias;
     }
 
-    public void borrarInscripcionMateriaAlumno(int idAlumno,int idMateria) {
+    public void borrarInscripcionMateriaAlumno(int idAlumno, int idMateria) {
 
         try {
             String sql = "DELETE FROM inscripcion WHERE idAlumno = ? AND idMateria = ? ";
-            PreparedStatement ps = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, idAlumno);
             ps.setInt(2, idMateria);
             int fila = ps.executeUpdate();
@@ -186,8 +192,8 @@ public class InscripcionData {
         }
 
     }
-    
-     public List<Alumno> obtenerAlumnosXMateria(int idMateria) {
+
+    public List<Alumno> obtenerAlumnosXMateria(int idMateria) {
 
         List<Alumno> alumnos = new ArrayList<>();
         try {

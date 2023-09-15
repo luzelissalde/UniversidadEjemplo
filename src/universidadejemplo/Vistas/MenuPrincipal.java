@@ -86,6 +86,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMAdministracion.add(jMManejoInscripcion);
 
         jMManipulacionNotas.setText("Manipulacion de notas");
+        jMManipulacionNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMManipulacionNotasActionPerformed(evt);
+            }
+        });
         jMAdministracion.add(jMManipulacionNotas);
 
         jMenuBar1.add(jMAdministracion);
@@ -93,6 +98,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMConsultas.setText("Consultas");
 
         jMAlumnosMateria.setText("Alumnos por Materia");
+        jMAlumnosMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMAlumnosMateriaActionPerformed(evt);
+            }
+        });
         jMConsultas.add(jMAlumnosMateria);
 
         jMenuBar1.add(jMConsultas);
@@ -142,6 +152,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(FormularioView);
         escritorio.moveToFront(FormularioView);
     }//GEN-LAST:event_jMManejoInscripcionActionPerformed
+
+    private void jMManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManipulacionNotasActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        CargaNotas notasView = new CargaNotas();
+        notasView.setVisible(true);
+        escritorio.add(notasView);
+        escritorio.moveToFront(notasView);
+    }//GEN-LAST:event_jMManipulacionNotasActionPerformed
+
+    private void jMAlumnosMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumnosMateriaActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        ConsultaAlumnoMateria alumnoView = new ConsultaAlumnoMateria();
+        alumnoView.setVisible(true);
+        escritorio.add(alumnoView);
+        escritorio.moveToFront(alumnoView);
+    }//GEN-LAST:event_jMAlumnosMateriaActionPerformed
 
     /**
      * @param args the command line arguments

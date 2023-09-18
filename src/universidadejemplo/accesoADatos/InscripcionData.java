@@ -71,7 +71,7 @@ public class InscripcionData {
     }
     
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
-      alumnodata = new AlumnoData();
+      
         List<Inscripcion> inscricion = new ArrayList<>();
         try {
             String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?";
@@ -83,7 +83,7 @@ public class InscripcionData {
 
                 insc.setIdInscripcion(rs.getInt("idInscripto"));
                 insc.setNota(rs.getDouble("nota"));
-                insc.getAlumno().getIdAlumno(rs.getInt("idAlumno"));
+                insc.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
                 insc.getMateria().setIdMateria(rs.getInt("idMateria"));
                 inscricion.add(insc);
             }
@@ -194,20 +194,23 @@ public class InscripcionData {
 
         List<Alumno> alumnos = new ArrayList<>();
         try {
-            String sql = "SELECT inscripcion.idAlumno, nombre, año FROM inscripcion, alumno"
-                    + " WHERE inscripcion.idAlumno = alumno.idAlumno AND inscripcion.idMateria = ?";
+            String sql = "SELECT DISTINCT a.idAlumno, a.dni, a.apellido, a.nombre FROM alumno a " +
+                     "INNER JOIN inscripcion i ON a.idAlumno = i.idAlumno " +
+                     "WHERE i.idMateria = ?";
+//            String sql = "SELECT inscripcion.idAlumno, dni, apellido, nombre FROM inscripcion, alumno"
+//                    + " WHERE inscripcion.idMateria = ? AND ";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, idMateria);
             ResultSet rs = ps.executeQuery();
             Alumno alumno;
             while (rs.next()) {
                 alumno = new Alumno();
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
-                alumno.setDni(rs.getInt("dni"));
-                alumno.setApellido(rs.getString("apellido"));
-                alumno.setNombre(rs.getString("nombre"));
-                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setActivo(rs.getBoolean("estado"));
+                alumno.setIdAlumno(rs.getInt(1));
+                alumno.setDni(rs.getInt(2));
+                alumno.setApellido(rs.getString(3));
+                alumno.setNombre(rs.getString(4));
+//                alumno.setFechaNac(rs.getDate(5).toLocalDate());
+//                alumno.setActivo(rs.getBoolean(6));
                 alumnos.add(alumno);
             }
             ps.close();

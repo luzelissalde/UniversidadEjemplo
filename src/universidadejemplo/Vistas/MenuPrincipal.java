@@ -4,6 +4,8 @@
  */
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
+
 /**
  *
  * @author USURIO
@@ -14,7 +16,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
+        setUndecorated(true);
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setBackground(new Color(0, 0, 0, 0));
     }
 
     /**
@@ -107,6 +113,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMConsultas);
 
         jMSalir.setText("Salir");
+        jMSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMSalirMouseClicked(evt);
+            }
+        });
+        jMSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMSalir);
 
         setJMenuBar(jMenuBar1);
@@ -169,6 +185,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(alumnoView);
         escritorio.moveToFront(alumnoView);
     }//GEN-LAST:event_jMAlumnosMateriaActionPerformed
+
+    private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_jMSalirActionPerformed
+
+    private void jMSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMSalirMouseClicked
+      System.exit(0);
+    }//GEN-LAST:event_jMSalirMouseClicked
 
     /**
      * @param args the command line arguments

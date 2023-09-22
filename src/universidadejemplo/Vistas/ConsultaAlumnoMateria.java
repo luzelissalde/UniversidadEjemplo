@@ -149,10 +149,10 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
         System.out.println(mat.getIdMateria());
         borrarFilas();
         for (Alumno prod : inscripcion.obtenerAlumnosXMateria(mat.getIdMateria())) {
-            System.out.println("ID de Alumno: " + prod.getIdAlumno());
-            System.out.println("DNI del Alumno: " + prod.getDni());
-            System.out.println("Apellido del Alumno: " + prod.getApellido());
-            System.out.println("Nombre del Alumno: " + prod.getNombre());
+//            System.out.println("ID de Alumno: " + prod.getIdAlumno());
+//            System.out.println("DNI del Alumno: " + prod.getDni());
+//            System.out.println("Apellido del Alumno: " + prod.getApellido());
+//            System.out.println("Nombre del Alumno: " + prod.getNombre());
             modelo.addRow(new Object[]{prod.getIdAlumno(), prod.getDni(), prod.getApellido(), prod.getNombre()});
         }
         

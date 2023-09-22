@@ -209,7 +209,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jDFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevo)
                     .addComponent(jBEliminar)
@@ -257,14 +257,14 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
         AlumnoData alumnos = new AlumnoData();
-        Alumno alumno = new Alumno();
+        Alumno jorge = new Alumno();
         if (jTxDocumento.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese un numero de documento correcto");
         } else {
             try {
-                alumno = alumnos.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
-                alumnos.eliminarAlumno(alumno.getIdAlumno());
-                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: " + alumno.getNombre() + alumno.getApellido());
+                jorge = alumnos.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
+                alumnos.eliminarAlumno(jorge.getIdAlumno());
+                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: " + jorge.getNombre() + jorge.getApellido());
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
             }

@@ -1,4 +1,3 @@
-
 package universidadejemplo.accesoADatos;
 
 import javax.swing.JOptionPane;
@@ -8,10 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class AlumnoData {
-    
+
     private Connection connection;
 
     public AlumnoData() {
@@ -43,7 +40,7 @@ public class AlumnoData {
 
         }
     }
-  
+
     public Alumno buscarAlumno(int id) {
         Alumno alumno = null;
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
@@ -74,7 +71,7 @@ public class AlumnoData {
 
         return alumno;
     }
-    
+
     public Alumno buscarAlumnoPorDni(int dni) {
         Alumno alumno = null;
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado = 1";
@@ -155,7 +152,7 @@ public class AlumnoData {
         }
 
     }
-    
+
     public void eliminarAlumno(int id) {
 
         try {
@@ -174,4 +171,3 @@ public class AlumnoData {
     }
 
 }
-

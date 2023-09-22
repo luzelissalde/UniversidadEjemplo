@@ -15,7 +15,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-        
     }
 
     /**
@@ -145,7 +144,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMFormularioMateriaActionPerformed
 
     private void jMManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManejoInscripcionActionPerformed
-       escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         VistaFormularioInscripcion FormularioView = new VistaFormularioInscripcion();
         FormularioView.setVisible(true);

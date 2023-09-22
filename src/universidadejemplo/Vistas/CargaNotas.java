@@ -98,6 +98,11 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
         jBsalir.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jBsalir.setText("Salir");
+        jBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBsalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,7 +161,10 @@ public class CargaNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
-        // TODO add your handling code here:
+        inscripcion = new InscripcionData();
+        Alumno alum = (Alumno)jCBalumno.getSelectedItem();
+        modelo.setValueAt(modelo.getValueAt(jTabla.getSelectedRow(),2), modelo.getRowCount()-1, 2);
+        inscripcion.actualizarNota(alum.getIdAlumno(), (int)modelo.getValueAt(modelo.getRowCount()-1, 0), Double.parseDouble(modelo.getValueAt(modelo.getRowCount()-1, 2).toString()));
     }//GEN-LAST:event_jBguardarActionPerformed
 
     private void jCBalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBalumnoActionPerformed
@@ -167,8 +175,6 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         
         Alumno alumn = (Alumno) jCBalumno.getSelectedItem();
 
-        
-        
         borrarFilas();
         for (Inscripcion prod : inscripcion.obtenerInscripcionesPorAlumno(alumn.getIdAlumno())) {
            modelo.addRow(new Object[]{prod.getMateria().getIdMateria(), prod.getMateria().getNombre(), prod.getNota()});
@@ -176,6 +182,10 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
         }
     }//GEN-LAST:event_jCBalumnoActionPerformed
+
+    private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBsalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

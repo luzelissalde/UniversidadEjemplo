@@ -46,7 +46,7 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
         jTabla = new javax.swing.JTable();
         jBsalir = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(78, 75, 114));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

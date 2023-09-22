@@ -165,7 +165,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioAlumnoActionPerformed
         escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.repaint();
         vistaAlumno alumnoView = new vistaAlumno();
         alumnoView.setVisible(true);
         escritorio.add(alumnoView);
@@ -173,7 +173,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMFormularioAlumnoActionPerformed
 
     private void jMFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioMateriaActionPerformed
-        escritorio.removeAll();
+//        escritorio.removeAll();
         escritorio.repaint();
         vistaMateria materiaView = new vistaMateria();
         materiaView.setVisible(true);
@@ -183,7 +183,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManejoInscripcionActionPerformed
         escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.repaint();
         VistaFormularioInscripcion FormularioView = new VistaFormularioInscripcion();
         FormularioView.setVisible(true);
         escritorio.add(FormularioView);
@@ -192,7 +192,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManipulacionNotasActionPerformed
         escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.repaint();
         CargaNotas notasView = new CargaNotas();
         notasView.setVisible(true);
         escritorio.add(notasView);
@@ -201,7 +201,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMAlumnosMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumnosMateriaActionPerformed
         escritorio.removeAll();
-        escritorio.repaint();
+//        escritorio.repaint();
         ConsultaAlumnoMateria alumnoView = new ConsultaAlumnoMateria();
         alumnoView.setVisible(true);
         escritorio.add(alumnoView);

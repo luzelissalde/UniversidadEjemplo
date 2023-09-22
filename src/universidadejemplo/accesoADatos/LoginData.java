@@ -28,6 +28,10 @@ public class LoginData {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(2, login.getUsuario());
             ps.setString(3, login.getContrasenia());
+            ps.setString(3, login.getNombre());
+            ps.setString(3, login.getApellido());
+            ps.setString(3, login.getMail());
+            ps.setString(3, login.getPregunta());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();

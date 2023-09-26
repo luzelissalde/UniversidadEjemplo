@@ -31,10 +31,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jSeparator2 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        panelRound1 = new universidadejemplo.Vistas.PanelRound();
         jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        panelRound2 = new universidadejemplo.Vistas.PanelRound();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -43,18 +44,21 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jTxCodigo = new javax.swing.JTextField();
         jTxAnio = new javax.swing.JTextField();
         jRadioEstadoMateria = new javax.swing.JRadioButton();
-        jBNuevo = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
-        jBGuardar = new javax.swing.JButton();
-        jBSalir = new javax.swing.JButton();
+        btnCrear2 = new universidadejemplo.Vistas.PanelRound();
+        jLabel8 = new javax.swing.JLabel();
+        btnCrear3 = new universidadejemplo.Vistas.PanelRound();
+        jLabel9 = new javax.swing.JLabel();
+        btnCrear4 = new universidadejemplo.Vistas.PanelRound();
+        jLabel10 = new javax.swing.JLabel();
+        btnCrear5 = new universidadejemplo.Vistas.PanelRound();
+        jLabel11 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(78, 75, 114));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Codigo");
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        panelRound1.setBackground(new java.awt.Color(41, 40, 65));
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -62,156 +66,175 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel2.setText("Materia");
         jLabel2.setAlignmentX(50.0F);
         jLabel2.setAlignmentY(50.0F);
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 462, -1));
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 63, 365, 16));
+
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 80));
+
+        panelRound2.setBackground(new java.awt.Color(28, 27, 41));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Codigo");
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 100, 104, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Estado");
+        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 279, 86, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre");
+        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 160, 94, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Año");
+        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 222, 94, -1));
 
+        jTxNombreMateria.setBackground(new java.awt.Color(28, 27, 41));
         jTxNombreMateria.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        panelRound2.add(jTxNombreMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 157, 324, -1));
 
+        jBBuscar.setBackground(new java.awt.Color(28, 27, 41));
         jBBuscar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jBBuscar.setForeground(new java.awt.Color(228, 228, 231));
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
             }
         });
+        panelRound2.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 97, 96, -1));
 
+        jTxCodigo.setBackground(new java.awt.Color(28, 27, 41));
         jTxCodigo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        panelRound2.add(jTxCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 97, 165, -1));
 
+        jTxAnio.setBackground(new java.awt.Color(28, 27, 41));
         jTxAnio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        panelRound2.add(jTxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 219, 199, -1));
+        panelRound2.add(jRadioEstadoMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 279, -1, -1));
 
-        jBNuevo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBNuevo.setText("Nuevo");
-        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNuevoActionPerformed(evt);
+        btnCrear2.setBackground(new java.awt.Color(88, 101, 242));
+        btnCrear2.setRoundBottomLeft(40);
+        btnCrear2.setRoundBottomRight(40);
+        btnCrear2.setRoundTopLeft(40);
+        btnCrear2.setRoundTopRight(40);
+        btnCrear2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrear2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrear2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrear2MouseExited(evt);
             }
         });
+        btnCrear2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBEliminar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBEliminar.setText("Eliminar");
-        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarActionPerformed(evt);
+        jLabel8.setBackground(new java.awt.Color(88, 101, 242));
+        jLabel8.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Nuevo");
+        jLabel8.setAlignmentX(40.0F);
+        btnCrear2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+
+        panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, 40));
+
+        btnCrear3.setBackground(new java.awt.Color(88, 101, 242));
+        btnCrear3.setRoundBottomLeft(40);
+        btnCrear3.setRoundBottomRight(40);
+        btnCrear3.setRoundTopLeft(40);
+        btnCrear3.setRoundTopRight(40);
+        btnCrear3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrear3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrear3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrear3MouseExited(evt);
             }
         });
+        btnCrear3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBGuardar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBGuardar.setText("Guardar");
-        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBGuardarActionPerformed(evt);
+        jLabel9.setBackground(new java.awt.Color(88, 101, 242));
+        jLabel9.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Eliminar");
+        jLabel9.setAlignmentX(40.0F);
+        btnCrear3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+
+        panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, 40));
+
+        btnCrear4.setBackground(new java.awt.Color(88, 101, 242));
+        btnCrear4.setRoundBottomLeft(40);
+        btnCrear4.setRoundBottomRight(40);
+        btnCrear4.setRoundTopLeft(40);
+        btnCrear4.setRoundTopRight(40);
+        btnCrear4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrear4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrear4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrear4MouseExited(evt);
             }
         });
+        btnCrear4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBSalir.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jBSalir.setText("Salir");
-        jBSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSalirActionPerformed(evt);
+        jLabel10.setBackground(new java.awt.Color(88, 101, 242));
+        jLabel10.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Guardar");
+        jLabel10.setAlignmentX(40.0F);
+        btnCrear4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+
+        panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 100, 40));
+
+        btnCrear5.setBackground(new java.awt.Color(88, 101, 242));
+        btnCrear5.setRoundBottomLeft(40);
+        btnCrear5.setRoundBottomRight(40);
+        btnCrear5.setRoundTopLeft(40);
+        btnCrear5.setRoundTopRight(40);
+        btnCrear5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrear5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrear5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrear5MouseExited(evt);
             }
         });
+        btnCrear5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jBNuevo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBEliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBSalir))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(224, 224, 224)
-                                .addComponent(jBBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(jRadioEstadoMateria)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(126, 126, 126))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jTxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addComponent(jTxNombreMateria))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)))
-                .addGap(30, 30, 30))
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jBBuscar)
-                    .addComponent(jTxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTxNombreMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jRadioEstadoMateria))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBNuevo)
-                    .addComponent(jBEliminar)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBSalir))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        jLabel11.setBackground(new java.awt.Color(88, 101, 242));
+        jLabel11.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Salir");
+        jLabel11.setAlignmentX(40.0F);
+        btnCrear5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 100, 40));
+
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 460, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,7 +255,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
-    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+    private void btnCrear2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseClicked
         materia = new MateriaData();
         if (jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
@@ -245,9 +268,17 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Error al cargar el materia" + e.getMessage());
             }
         }
-    }//GEN-LAST:event_jBNuevoActionPerformed
+    }//GEN-LAST:event_btnCrear2MouseClicked
 
-    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+    private void btnCrear2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear2MouseEntered
+
+    private void btnCrear2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear2MouseExited
+
+    private void btnCrear3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseClicked
         materia = new MateriaData();
         if (jTxCodigo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el codigo de la materia correcto");
@@ -258,15 +289,18 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "La materia ingresada no existe o es incorrecta");
             }
         }
-    }//GEN-LAST:event_jBEliminarActionPerformed
+    }//GEN-LAST:event_btnCrear3MouseClicked
 
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        this.dispose();
-       
-    }//GEN-LAST:event_jBSalirActionPerformed
+    private void btnCrear3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear3MouseEntered
 
-    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        materia = new MateriaData();
+    private void btnCrear3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear3MouseExited
+
+    private void btnCrear4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseClicked
+         materia = new MateriaData();
         if (jTxCodigo.getText().isEmpty() || jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
         } else {
@@ -290,26 +324,51 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Error al cargar la materia " + e.getMessage());
             }
         }
-    }//GEN-LAST:event_jBGuardarActionPerformed
+    }//GEN-LAST:event_btnCrear4MouseClicked
+
+    private void btnCrear4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear4MouseEntered
+
+    private void btnCrear4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear4MouseExited
+
+    private void btnCrear5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCrear5MouseClicked
+
+    private void btnCrear5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear5MouseEntered
+
+    private void btnCrear5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrear5MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private universidadejemplo.Vistas.PanelRound btnCrear2;
+    private universidadejemplo.Vistas.PanelRound btnCrear3;
+    private universidadejemplo.Vistas.PanelRound btnCrear4;
+    private universidadejemplo.Vistas.PanelRound btnCrear5;
     private javax.swing.JButton jBBuscar;
-    private javax.swing.JButton jBEliminar;
-    private javax.swing.JButton jBGuardar;
-    private javax.swing.JButton jBNuevo;
-    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioEstadoMateria;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTxAnio;
     private javax.swing.JTextField jTxCodigo;
     private javax.swing.JTextField jTxNombreMateria;
+    private universidadejemplo.Vistas.PanelRound panelRound1;
+    private universidadejemplo.Vistas.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

@@ -65,13 +65,13 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(78, 75, 114));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(228, 228, 231));
         jLabel1.setText("Seleccione un alumno");
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(228, 228, 231));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Formulario de Inscripcion");
 
@@ -119,8 +119,9 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(28, 27, 41));
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(228, 228, 231));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Listado de Materias");
 
@@ -137,6 +138,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jTabla.setBackground(new java.awt.Color(28, 27, 41));
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

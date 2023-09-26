@@ -27,6 +27,7 @@ public class MateriaData {
             ps.setBoolean(3, materia.isActivo()); // if reducido
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
+            
             if (rs.next()) {
                 materia.setIdMateria(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Materia añadido con exito.");
@@ -54,7 +55,7 @@ public class MateriaData {
                 materia.setIdMateria(id);
                 materia.setNombre(rs.getString("Nombre"));
                 materia.setAnio(rs.getInt("Año"));
-                materia.setActivo(true);
+                materia.setActivo(rs.getBoolean("estado"));
 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe la materia");

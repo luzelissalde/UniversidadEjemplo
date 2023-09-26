@@ -23,15 +23,16 @@ public class LoginData {
     
     public void guardarLogin(Login login) {
 
-        String sql = "INSERT INTO login (idLogin, usuario, contraseña, nombre , apellido , mail, pregunta) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO login (idLogin, usuario, contraseña, nombre , apellido , mail, pregunta, respuesta) VALUES (?,?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(2, login.getUsuario());
-            ps.setString(3, login.getContrasenia());
+            ps.setString(1, login.getUsuario());
+            ps.setString(2, login.getContrasenia());
             ps.setString(3, login.getNombre());
-            ps.setString(3, login.getApellido());
-            ps.setString(3, login.getMail());
-            ps.setString(3, login.getPregunta());
+            ps.setString(4, login.getApellido());
+            ps.setString(5, login.getMail());
+            ps.setString(6, login.getPregunta());
+            ps.setString(7, login.getRespueta());
             
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -50,14 +51,19 @@ public class LoginData {
     
     public void modificarLogin(Login login) {
 
-        String sql = "UPDATE alumno SET usuario = ? , contraseña = ? WHERE idAlumno = ?";
+        String sql = "UPDATE alumno SET usuario = ? , contraseña = ? , nombre=?, apellido =? , mail =?, pregunta=? , respuesta = ? WHERE idLogin = ?";
         PreparedStatement ps = null;
 
         try {
             ps = connection.prepareStatement(sql);
             ps.setString(1, login.getUsuario());
             ps.setString(2, login.getContrasenia());
-            ps.setInt(3, login.getIdLogin());
+            ps.setString(3, login.getNombre());
+            ps.setString(4, login.getApellido());
+            ps.setString(5, login.getMail());
+            ps.setString(6, login.getPregunta());
+            ps.setString(7, login.getRespueta());
+            ps.setInt(8, login.getIdLogin());
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
@@ -74,7 +80,7 @@ public class LoginData {
     
      public Login buscarLoginPorUsuario(String usuario) {
         Login login = null;
-        String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado = 1";
+        String sql = "SELECT idLogin, usuario, contraseña, nombre, apellido, mail, pregunta, respuesta FROM login WHERE usuario=?";
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
@@ -90,13 +96,14 @@ public class LoginData {
                 login.setApellido(rs.getString(5));
                 login.setMail(rs.getString(6));
                 login.setPregunta(rs.getString(7));
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el alumno");
+                login.setRespueta(rs.getString(8));
+            }else {
+                JOptionPane.showMessageDialog(null, "No existe el usuario");
 
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Login " + ex.getMessage());
         }
 
         return login;

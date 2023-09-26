@@ -4,6 +4,7 @@
  */
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import universidadejemplo.Entidades.*;
@@ -36,14 +37,12 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         panelRound2 = new universidadejemplo.Vistas.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTxNombreMateria = new javax.swing.JTextField();
         jBBuscar = new javax.swing.JButton();
         jTxCodigo = new javax.swing.JTextField();
         jTxAnio = new javax.swing.JTextField();
-        jRadioEstadoMateria = new javax.swing.JRadioButton();
         btnCrear2 = new universidadejemplo.Vistas.PanelRound();
         jLabel8 = new javax.swing.JLabel();
         btnCrear3 = new universidadejemplo.Vistas.PanelRound();
@@ -81,29 +80,25 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Codigo");
-        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 100, 104, -1));
-
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Estado");
-        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 279, 86, -1));
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 104, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre");
-        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 160, 94, -1));
+        panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 94, -1));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Año");
-        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 222, 94, -1));
+        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 94, -1));
 
         jTxNombreMateria.setBackground(new java.awt.Color(28, 27, 41));
         jTxNombreMateria.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        panelRound2.add(jTxNombreMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 157, 324, -1));
+        jTxNombreMateria.setForeground(new java.awt.Color(228, 228, 231));
+        panelRound2.add(jTxNombreMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 324, -1));
 
         jBBuscar.setBackground(new java.awt.Color(28, 27, 41));
-        jBBuscar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jBBuscar.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
         jBBuscar.setForeground(new java.awt.Color(228, 228, 231));
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,16 +106,17 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 jBBuscarActionPerformed(evt);
             }
         });
-        panelRound2.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 97, 96, -1));
+        panelRound2.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 96, -1));
 
         jTxCodigo.setBackground(new java.awt.Color(28, 27, 41));
         jTxCodigo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        panelRound2.add(jTxCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 97, 165, -1));
+        jTxCodigo.setForeground(new java.awt.Color(228, 228, 231));
+        panelRound2.add(jTxCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 165, -1));
 
         jTxAnio.setBackground(new java.awt.Color(28, 27, 41));
         jTxAnio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        panelRound2.add(jTxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, 219, 199, -1));
-        panelRound2.add(jRadioEstadoMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 279, -1, -1));
+        jTxAnio.setForeground(new java.awt.Color(228, 228, 231));
+        panelRound2.add(jTxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 199, -1));
 
         btnCrear2.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear2.setRoundBottomLeft(40);
@@ -144,11 +140,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(228, 228, 231));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Nuevo");
+        jLabel8.setText("Agregar");
         jLabel8.setAlignmentX(40.0F);
-        btnCrear2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+        btnCrear2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, 40));
+        panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 100, 40));
 
         btnCrear3.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear3.setRoundBottomLeft(40);
@@ -174,9 +170,9 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Eliminar");
         jLabel9.setAlignmentX(40.0F);
-        btnCrear3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+        btnCrear3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, 40));
+        panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 100, 40));
 
         btnCrear4.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear4.setRoundBottomLeft(40);
@@ -202,9 +198,9 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Guardar");
         jLabel10.setAlignmentX(40.0F);
-        btnCrear4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
+        btnCrear4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 100, 40));
+        panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 100, 40));
 
         btnCrear5.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear5.setRoundBottomLeft(40);
@@ -232,9 +228,9 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel11.setAlignmentX(40.0F);
         btnCrear5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 40));
 
-        panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 100, 40));
+        panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 100, 40));
 
-        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 460, 460));
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 460, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,7 +244,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 Materia mate = materia.buscarMateria(Integer.parseInt(jTxCodigo.getText()));
                 jTxNombreMateria.setText(mate.getNombre());
                 jTxAnio.setText(String.valueOf(mate.getAnio()));
-                jRadioEstadoMateria.setSelected(mate.isActivo());
+//                jRadioEstadoMateria.setSelected(mate.isActivo());
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "La materia ingresado no existe o es incorrecto el codigo");
             }
@@ -261,7 +257,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
         } else {
             try {
-                Materia mate = new Materia(jTxNombreMateria.getText(), Integer.parseInt(jTxAnio.getText()), jRadioEstadoMateria.isSelected());
+                Materia mate = new Materia(jTxNombreMateria.getText(), Integer.parseInt(jTxAnio.getText()), true);
                 materia.guardarMateria(mate);
             } catch (HeadlessException | NumberFormatException e) {
                 
@@ -271,11 +267,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear2MouseClicked
 
     private void btnCrear2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseEntered
-        // TODO add your handling code here:
+        btnCrear2.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear2MouseEntered
 
     private void btnCrear2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseExited
-        // TODO add your handling code here:
+        btnCrear2.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear2MouseExited
 
     private void btnCrear3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseClicked
@@ -292,11 +288,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear3MouseClicked
 
     private void btnCrear3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseEntered
-        // TODO add your handling code here:
+        btnCrear3.setBackground(new Color(121, 131, 245));// TODO add your handling code here:
     }//GEN-LAST:event_btnCrear3MouseEntered
 
     private void btnCrear3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseExited
-        // TODO add your handling code here:
+       btnCrear3.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear3MouseExited
 
     private void btnCrear4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseClicked
@@ -309,7 +305,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 mate.setIdMateria(Integer.parseInt(jTxCodigo.getText()));
                 mate.setNombre(jTxNombreMateria.getText());
                 mate.setAnio(Integer.parseInt(jTxAnio.getText()));
-                mate.setActivo(jRadioEstadoMateria.isSelected());
+//                mate.setActivo(jRadioEstadoMateria.isSelected());
                 String si = "SI";
                 String no = "NO";
                 String cancelar = "Cancelar";
@@ -327,11 +323,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear4MouseClicked
 
     private void btnCrear4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseEntered
-        // TODO add your handling code here:
+        btnCrear4.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear4MouseEntered
 
     private void btnCrear4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseExited
-        // TODO add your handling code here:
+        btnCrear4.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear4MouseExited
 
     private void btnCrear5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseClicked
@@ -339,11 +335,11 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear5MouseClicked
 
     private void btnCrear5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseEntered
-        // TODO add your handling code here:
+       btnCrear5.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear5MouseEntered
 
     private void btnCrear5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseExited
-        // TODO add your handling code here:
+       btnCrear5.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear5MouseExited
 
 
@@ -357,12 +353,10 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioEstadoMateria;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTxAnio;

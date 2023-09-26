@@ -34,7 +34,7 @@ public class InscripcionData {
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                insc.setIdInscripcion(rs.getInt("idAlumno"));
+                insc.setIdInscripcion(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Nota añadida con exito");
             }
             ps.close();
@@ -130,7 +130,7 @@ public class InscripcionData {
         List<Materia> materias = new ArrayList<>();
         try {
             String sql = "SELECT materia.idMateria, nombre, año FROM materia "
-                + "WHERE materia.idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
+                + "WHERE estado = 1 AND materia.idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

@@ -5,6 +5,12 @@
 package universidadejemplo.Vistas;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JDesktopPane;
+import javax.swing.JRootPane;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
@@ -20,9 +26,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        escritorio.setBackground(new Color(41,40,65,0));
-        escritorio.setBorder(null);
-        
+
+//     escritorio.setOpaque(true);
+//        escritorio.setBorder(null);
     }
 
     /**
@@ -32,8 +38,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new universidadejemplo.Vistas.PanelRound();
         escritorio = new javax.swing.JDesktopPane();
+        panelRound1 = new universidadejemplo.Vistas.PanelRound();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMAlumno = new javax.swing.JMenu();
         jMFormularioAlumno = new javax.swing.JMenuItem();
@@ -48,7 +54,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelRound1.setBackground(new java.awt.Color(41, 40, 65));
+        escritorio.setBackground(new java.awt.Color(41, 40, 65));
+
+        panelRound1.setBackground(new java.awt.Color(49, 51, 56));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -58,21 +66,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
+            .addGap(0, 604, Short.MAX_VALUE)
         );
 
-        escritorio.setBackground(new java.awt.Color(41, 40, 65));
+        escritorio.setLayer(panelRound1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 585, Short.MAX_VALUE)
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jMenuBar1.setBackground(new java.awt.Color(228, 228, 231));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(41, 40, 65));
+        jMenuBar1.setFont(new java.awt.Font("Open Sans Medium", 0, 24)); // NOI18N
+        jMenuBar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenuBar1MouseEntered(evt);
+            }
+        });
 
         jMAlumno.setText("Alumno");
 
@@ -150,106 +170,164 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelRound1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(escritorio)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioAlumnoActionPerformed
+
         escritorio.removeAll();
-//        escritorio.repaint();
+        escritorio.repaint();
         vistaAlumno alumnoView = new vistaAlumno();
+        
+        //pone el centro el internal frame
+        Dimension descot = escritorio.getSize();
+        Dimension Internal = alumnoView.getSize();
+        alumnoView.setLocation((descot.width - Internal.width) / 2, (descot.height - Internal.height) / 2);
+        
+        
+        alumnoView.setResizable(true);
         alumnoView.setVisible(true);
+        
+        BasicInternalFrameUI internalFrameUI = (BasicInternalFrameUI) alumnoView.getUI();
+        internalFrameUI.setNorthPane(null);
+        alumnoView.setBorder(null);
+        alumnoView.setBackground(new Color(0,0,0,0));
+        
+        escritorio.add(panelRound1);
         escritorio.add(alumnoView);
+
+//        alumnoView.show();
         escritorio.moveToFront(alumnoView);
     }//GEN-LAST:event_jMFormularioAlumnoActionPerformed
 
     private void jMFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioMateriaActionPerformed
-//        escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
+        panelRound1.setVisible(true);
         vistaMateria materiaView = new vistaMateria();
+        Dimension descot = escritorio.getSize();
+        Dimension Internal = materiaView.getSize();
+        materiaView.setLocation((descot.width - Internal.width) / 2, (descot.height - Internal.height) / 2);
+        materiaView.setResizable(true);
         materiaView.setVisible(true);
+        BasicInternalFrameUI internalFrameUI = (BasicInternalFrameUI) materiaView.getUI();
+        internalFrameUI.setNorthPane(null);
+        materiaView.setBorder(null);
+        materiaView.setBackground(new Color(0,0,0,0));
+        escritorio.add(panelRound1);
         escritorio.add(materiaView);
         escritorio.moveToFront(materiaView);
     }//GEN-LAST:event_jMFormularioMateriaActionPerformed
 
     private void jMManejoInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManejoInscripcionActionPerformed
         escritorio.removeAll();
-//        escritorio.repaint();
+        escritorio.repaint();
         VistaFormularioInscripcion FormularioView = new VistaFormularioInscripcion();
+        Dimension descot = escritorio.getSize();
+        Dimension Internal = FormularioView.getSize();
+        FormularioView.setLocation((descot.width - Internal.width) / 2, (descot.height - Internal.height) / 2);
+        FormularioView.setResizable(true);
         FormularioView.setVisible(true);
+        BasicInternalFrameUI internalFrameUI = (BasicInternalFrameUI) FormularioView.getUI();
+        internalFrameUI.setNorthPane(null);
+        FormularioView.setBorder(null);
+        FormularioView.setBackground(new Color(0,0,0,0));
+        escritorio.add(panelRound1);
         escritorio.add(FormularioView);
         escritorio.moveToFront(FormularioView);
     }//GEN-LAST:event_jMManejoInscripcionActionPerformed
 
     private void jMManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManipulacionNotasActionPerformed
         escritorio.removeAll();
-//        escritorio.repaint();
+        escritorio.repaint();
+        panelRound1.setVisible(true);
         CargaNotas notasView = new CargaNotas();
+        Dimension descot = escritorio.getSize();
+        Dimension Internal = notasView.getSize();
+        notasView.setLocation((descot.width - Internal.width) / 2, (descot.height - Internal.height) / 2);
+        notasView.setResizable(true);
         notasView.setVisible(true);
+        BasicInternalFrameUI internalFrameUI = (BasicInternalFrameUI) notasView.getUI();
+        internalFrameUI.setNorthPane(null);
+        notasView.setBorder(null);
+        notasView.setBackground(new Color(0,0,0,0));
+        escritorio.add(panelRound1);
         escritorio.add(notasView);
         escritorio.moveToFront(notasView);
     }//GEN-LAST:event_jMManipulacionNotasActionPerformed
 
     private void jMAlumnosMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMAlumnosMateriaActionPerformed
         escritorio.removeAll();
-//        escritorio.repaint();
+        escritorio.repaint();
+        panelRound1.setVisible(true);
         ConsultaAlumnoMateria alumnoView = new ConsultaAlumnoMateria();
+        Dimension descot = escritorio.getSize();
+        Dimension Internal = alumnoView.getSize();
+        alumnoView.setLocation((descot.width - Internal.width) / 2, (descot.height - Internal.height) / 2);
         alumnoView.setVisible(true);
+        BasicInternalFrameUI internalFrameUI = (BasicInternalFrameUI) alumnoView.getUI();
+        internalFrameUI.setNorthPane(null);
+        alumnoView.setBorder(null);
+        alumnoView.setBackground(new Color(0,0,0,0));
+        escritorio.add(panelRound1);
         escritorio.add(alumnoView);
         escritorio.moveToFront(alumnoView);
     }//GEN-LAST:event_jMAlumnosMateriaActionPerformed
 
     private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMSalirActionPerformed
 
     private void jMSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMSalirMouseClicked
-      System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMSalirMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jMenuBar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuBar1MouseEntered
+        
+    }//GEN-LAST:event_jMenuBar1MouseEntered
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuPrincipal().setVisible(true);
-            }
-        });
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MenuPrincipal().setVisible(true);
+//            }
+//        });
+//
+//    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
@@ -266,4 +344,5 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private universidadejemplo.Vistas.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
+
 }

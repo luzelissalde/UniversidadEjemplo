@@ -5,12 +5,16 @@
 package universidadejemplo.Vistas;
 
 import java.awt.Color;
+import universidadejemplo.accesoADatos.*;
+import universidadejemplo.Entidades.*;
 
 /**
  *
  * @author USURIO
  */
 public class VistaLogin extends javax.swing.JFrame {
+
+    private LoginData loginData;
 
     /**
      * Creates new form VistaLogin
@@ -29,6 +33,7 @@ public class VistaLogin extends javax.swing.JFrame {
         if (jTxtUsuario.getText().isEmpty() || jTxtUsuario.getText().equalsIgnoreCase("Ingrese su usuario")) {
             jTxtUsuario.setText("Ingrese su usuario");
         }
+        jLerror.setVisible(false);
 
     }
 
@@ -49,10 +54,12 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnIngresar = new universidadejemplo.Vistas.PanelRound();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLerror = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         panelRound3 = new universidadejemplo.Vistas.PanelRound();
         panelRound4 = new universidadejemplo.Vistas.PanelRound();
         panelRound5 = new universidadejemplo.Vistas.PanelRound();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -112,9 +119,11 @@ public class VistaLogin extends javax.swing.JFrame {
         panelRound2.add(jTxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 320, 30));
 
         jSeparator1.setBackground(new java.awt.Color(228, 228, 231));
+        jSeparator1.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 320, 10));
 
         jSeparator2.setBackground(new java.awt.Color(228, 228, 231));
+        jSeparator2.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 320, 10));
 
         btnCrear.setBackground(new java.awt.Color(88, 101, 242));
@@ -123,6 +132,9 @@ public class VistaLogin extends javax.swing.JFrame {
         btnCrear.setRoundTopLeft(40);
         btnCrear.setRoundTopRight(40);
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCrearMouseEntered(evt);
             }
@@ -137,6 +149,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(228, 228, 231));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Crear");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 150, 40));
 
         panelRound2.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 150, 40));
@@ -147,6 +160,9 @@ public class VistaLogin extends javax.swing.JFrame {
         btnIngresar.setRoundTopLeft(40);
         btnIngresar.setRoundTopRight(40);
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnIngresarMouseEntered(evt);
             }
@@ -160,15 +176,22 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(228, 228, 231));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Ingresar");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIngresar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 150, 40));
 
         panelRound2.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 150, -1));
 
-        jLabel2.setFont(new java.awt.Font("Open Sans Medium", 0, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(228, 228, 231));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Inicio de sesion");
-        panelRound2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 20, 400, -1));
+        jLerror.setFont(new java.awt.Font("Open Sans Medium", 0, 14)); // NOI18N
+        jLerror.setForeground(new java.awt.Color(228, 228, 231));
+        jLerror.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLerror.setText("Inicio de sesion");
+        panelRound2.add(jLerror, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 400, -1));
+
+        jLabel5.setFont(new java.awt.Font("Open Sans Medium", 0, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Inicio de sesion");
+        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 20, 400, -1));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 400, 310));
 
@@ -210,6 +233,23 @@ public class VistaLogin extends javax.swing.JFrame {
 
         panelRound1.add(panelRound3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 130, 130));
 
+        jLabel4.setBackground(new java.awt.Color(228, 228, 231));
+        jLabel4.setFont(new java.awt.Font("Open Sans Medium", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel4.setText("X");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel4MouseExited(evt);
+            }
+        });
+        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+
         getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 500));
 
         pack();
@@ -225,56 +265,136 @@ public class VistaLogin extends javax.swing.JFrame {
         if (jTxtUsuario.getText().equalsIgnoreCase("Ingrese su usuario")) {
             jTxtUsuario.setText("");
         }
+
+        jLerror.setVisible(false);
+        jSeparator2.setForeground(new Color(228, 228, 231));
+        jSeparator2.setBackground(new Color(228, 228, 231));
+
+
     }//GEN-LAST:event_jTxtUsuarioMouseClicked
 
     private void jTxtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtUsuarioFocusGained
-         if (jTxtUsuario.getText().equalsIgnoreCase("Ingrese su usuario")) {
+        if (jTxtUsuario.getText().equalsIgnoreCase("Ingrese su usuario")) {
             jTxtUsuario.setText("");
         }
+//        if (incorrecto) {
+//            jLerror.setVisible(false);
+//            jSeparator2.setForeground(new Color(228, 228, 231));
+//            jSeparator2.setBackground(new Color(228, 228, 231));
+//        }
     }//GEN-LAST:event_jTxtUsuarioFocusGained
 
     private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
-         if (String.valueOf(jPasswordField1.getPassword()).isEmpty() || String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
+        if (String.valueOf(jPasswordField1.getPassword()).isEmpty() || String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
             jPasswordField1.setText("Ingrese su password");
         }
-         
+
     }//GEN-LAST:event_jPasswordField1FocusLost
 
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
-         if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
+        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
             jPasswordField1.setText("");
         }
+
+        jLerror.setVisible(false);
+        jSeparator1.setForeground(new Color(228, 228, 231));
+        jSeparator1.setBackground(new Color(228, 228, 231));
+
     }//GEN-LAST:event_jPasswordField1MouseClicked
 
     private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
-         if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
+        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
             jPasswordField1.setText("");
         }
+//        if (incorrecto) {
+//            jLerror.setVisible(false);
+//            jSeparator1.setForeground(new Color(228, 228, 231));
+//            jSeparator1.setBackground(new Color(228, 228, 231));
+//        }
     }//GEN-LAST:event_jPasswordField1FocusGained
 
     private void btnIngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseEntered
-        btnIngresar.setBackground(new Color(121,131,245));
+        btnIngresar.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnIngresarMouseEntered
 
     private void btnIngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseExited
-        btnIngresar.setBackground(new Color(88,101,242));
+        btnIngresar.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnIngresarMouseExited
 
     private void btnCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseEntered
-        btnCrear.setBackground(new Color(121,131,245));
+        btnCrear.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrearMouseEntered
 
     private void btnCrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseExited
-        btnCrear.setBackground(new Color(88,101,242));
+        btnCrear.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrearMouseExited
+
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
+        loginData = new LoginData();
+
+        try {
+            Login usuario = loginData.buscarLoginPorUsuario(jTxtUsuario.getText());
+            if (jTxtUsuario.getText().equals(usuario.getUsuario()) && String.valueOf(jPasswordField1.getPassword()).equals(usuario.getContrasenia())) {
+                MenuPrincipal menu = new MenuPrincipal();
+                menu.setVisible(true);
+                this.setVisible(false);
+            }
+//            if (jTxtUsuario.getText().isEmpty()) {
+//                jLerror.setForeground(Color.red);
+//                jLerror.setText("*ingrese un usuario ");
+//                jLerror.setVisible(true);
+//                jSeparator2.setForeground(Color.red);
+//                jSeparator2.setBackground(Color.red);
+//
+//            } else if (String.valueOf(jPasswordField1.getPassword()).isEmpty()) {
+//                jLerror.setForeground(Color.red);
+//                jLerror.setText("*ingrese una contraseña ");
+//                jLerror.setVisible(true);
+//                jSeparator1.setForeground(Color.red);
+//                jSeparator1.setBackground(Color.red);
+//            }
+
+        } catch (NullPointerException e) {
+            jLerror.setForeground(Color.red);
+            jLerror.setText("*Usuario y/o contraseña incorrecto");
+            jLerror.setVisible(true);
+            jSeparator1.setForeground(Color.red);
+            jSeparator1.setBackground(Color.red);
+            jSeparator2.setForeground(Color.red);
+            jSeparator2.setBackground(Color.red);
+
+        } finally {
+            panelRound2.requestFocus();
+        }
+
+    }//GEN-LAST:event_btnIngresarMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        jLabel4.setForeground(new Color(121, 131, 245));    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        jLabel4.setForeground(new Color(228, 228, 231));
+    }//GEN-LAST:event_jLabel4MouseExited
+
+    private void btnCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseClicked
+        VistaCrearLogin vista = new VistaCrearLogin();
+        vista.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCrearMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private universidadejemplo.Vistas.PanelRound btnCrear;
     private universidadejemplo.Vistas.PanelRound btnIngresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLerror;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

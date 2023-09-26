@@ -16,27 +16,38 @@ public class Login {
     private String apellido;
     private String mail;
     private String pregunta;
+    private String respueta;
 
     public Login() {
     }
 
-    public Login(int idLogin, String usuario, String contraseña, String nombre, String contrasenia, String mail, String pregunta) {
+    public Login(int idLogin, String usuario, String contrasenia, String nombre, String apellido, String mail, String pregunta, String respueta) {
         this.idLogin = idLogin;
         this.usuario = usuario;
-        this.contrasenia = contraseña;
+        this.contrasenia = contrasenia;
         this.nombre = nombre;
-        this.apellido = contrasenia;
+        this.apellido = apellido;
         this.mail = mail;
         this.pregunta = pregunta;
+        this.respueta = respueta;
     }
 
-    public Login(String usuario, String contraseña, String nombre, String contrasenia, String mail, String pregunta) {
+    public Login(String usuario, String contrasenia, String nombre, String apellido, String mail, String pregunta, String respueta) {
         this.usuario = usuario;
-        this.contrasenia = contraseña;
+        this.contrasenia = contrasenia;
         this.nombre = nombre;
-        this.apellido = contrasenia;
+        this.apellido = apellido;
         this.mail = mail;
         this.pregunta = pregunta;
+        this.respueta = respueta;
+    }
+
+    public String getRespueta() {
+        return respueta;
+    }
+
+    public void setRespueta(String respueta) {
+        this.respueta = respueta;
     }
 
     public int getIdLogin() {

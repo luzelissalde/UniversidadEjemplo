@@ -40,7 +40,6 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         panelRound2 = new universidadejemplo.Vistas.PanelRound();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -48,7 +47,6 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jBBuscar = new javax.swing.JButton();
         jTxDocumento = new javax.swing.JTextField();
         jTxNombre = new javax.swing.JTextField();
-        jRadioEstado = new javax.swing.JRadioButton();
         jDFecha = new com.toedter.calendar.JDateChooser();
         btnCrear2 = new universidadejemplo.Vistas.PanelRound();
         jLabel8 = new javax.swing.JLabel();
@@ -87,11 +85,6 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel1.setText("Documento");
         panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 104, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(228, 228, 231));
-        jLabel3.setText("Estado");
-        panelRound2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 86, -1));
-
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(228, 228, 231));
         jLabel4.setText("Apellido");
@@ -105,12 +98,14 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(228, 228, 231));
         jLabel6.setText("Fecha de Nacimiento");
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 179, 28));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 179, 28));
 
         jTxApellido.setBackground(new java.awt.Color(28, 27, 41));
-        jTxApellido.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jTxApellido.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
+        jTxApellido.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 199, -1));
 
+        jBBuscar.setBackground(new java.awt.Color(28, 27, 41));
         jBBuscar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,17 +116,19 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         panelRound2.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         jTxDocumento.setBackground(new java.awt.Color(28, 27, 41));
-        jTxDocumento.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jTxDocumento.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
+        jTxDocumento.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 165, -1));
 
         jTxNombre.setBackground(new java.awt.Color(28, 27, 41));
-        jTxNombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jTxNombre.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
+        jTxNombre.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 199, -1));
-        panelRound2.add(jRadioEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
         jDFecha.setBackground(new java.awt.Color(28, 27, 41));
+        jDFecha.setForeground(new java.awt.Color(228, 228, 231));
         jDFecha.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        panelRound2.add(jDFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 160, 28));
+        panelRound2.add(jDFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, 28));
 
         btnCrear2.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear2.setRoundBottomLeft(40);
@@ -159,7 +156,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel8.setAlignmentX(40.0F);
         btnCrear2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 90, 40));
+        panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 90, 40));
 
         btnCrear3.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear3.setRoundBottomLeft(40);
@@ -187,7 +184,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel9.setAlignmentX(40.0F);
         btnCrear3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 90, 40));
+        panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 90, 40));
 
         btnCrear4.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear4.setRoundBottomLeft(40);
@@ -215,7 +212,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel10.setAlignmentX(40.0F);
         btnCrear4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 90, 40));
+        panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 90, 40));
 
         btnCrear5.setBackground(new java.awt.Color(88, 101, 242));
         btnCrear5.setRoundBottomLeft(40);
@@ -244,9 +241,9 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel11.setAlignmentX(40.0F);
         btnCrear5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 40));
 
-        panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 80, 40));
+        panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 40));
 
-        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 460, 500));
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 460, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -261,7 +258,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                 jTxDocumento.setText(String.valueOf(jorge.getDni()));
                 jTxApellido.setText(jorge.getApellido());
                 jTxNombre.setText(jorge.getNombre());
-                jRadioEstado.setSelected(jorge.isActivo());
+//                jRadioEstado.setSelected(jorge.isActivo());
                 jDFecha.setDate(Date.valueOf(jorge.getFechaNac()));
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
@@ -286,11 +283,11 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear2MouseClicked
 
     private void btnCrear2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseEntered
-        // TODO add your handling code here:
+        btnCrear2.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear2MouseEntered
 
     private void btnCrear2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseExited
-        // TODO add your handling code here:
+        btnCrear2.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear2MouseExited
 
     private void btnCrear3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseClicked
@@ -305,7 +302,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
                 jorge.setApellido(jTxApellido.getText());
                 jorge.setNombre(jTxNombre.getText());
                 jorge.setFechaNac(LocalDate.parse(formato.format(jDFecha.getDate())));
-                jorge.setActivo(jRadioEstado.isSelected());
+//                jorge.setActivo(jRadioEstado.isSelected());
 
                 String si = "SI";
                 String no = "NO";
@@ -324,11 +321,11 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear3MouseClicked
 
     private void btnCrear3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseEntered
-        // TODO add your handling code here:
+        btnCrear3.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear3MouseEntered
 
     private void btnCrear3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseExited
-        // TODO add your handling code here:
+        btnCrear3.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear3MouseExited
 
     private void btnCrear4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseClicked
@@ -336,23 +333,35 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCrear4MouseClicked
 
     private void btnCrear4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseEntered
-        // TODO add your handling code here:
+        btnCrear4.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear4MouseEntered
 
     private void btnCrear4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseExited
-        // TODO add your handling code here:
+        btnCrear4.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear4MouseExited
 
     private void btnCrear5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseClicked
-        // TODO add your handling code here:
+        alumno = new AlumnoData();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        if (jTxDocumento.getText().isEmpty() || jTxApellido.getText().isEmpty() || jTxNombre.getText().isEmpty() || jDFecha.getDate().toString().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
+        } else {
+            try {
+                Alumno jorge = new Alumno(Integer.parseInt(jTxDocumento.getText()), jTxNombre.getText(), jTxApellido.getText(), LocalDate.parse(formato.format(jDFecha.getDate())), true);
+                alumno.guardarAlumno(jorge);
+            } catch (HeadlessException | NumberFormatException e) {
+
+                JOptionPane.showMessageDialog(null, "Error al cargar el Alumno " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_btnCrear5MouseClicked
 
     private void btnCrear5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseEntered
-        // TODO add your handling code here:
+        btnCrear5.setBackground(new Color(121, 131, 245));
     }//GEN-LAST:event_btnCrear5MouseEntered
 
     private void btnCrear5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseExited
-        // TODO add your handling code here:
+        btnCrear5.setBackground(new Color(88, 101, 242));
     }//GEN-LAST:event_btnCrear5MouseExited
 
 
@@ -367,13 +376,11 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioEstado;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTxApellido;

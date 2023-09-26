@@ -4,7 +4,24 @@
  */
 package universidadejemplo.Vistas;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicComboBoxUI;
+import javax.swing.plaf.basic.BasicComboPopup;
+import javax.swing.plaf.basic.ComboPopup;
 import javax.swing.table.DefaultTableModel;
 import universidadejemplo.Entidades.Alumno;
 import universidadejemplo.Entidades.Inscripcion;
@@ -26,9 +43,10 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
 
     public ConsultaAlumnoMateria() {
         initComponents();
+        setOpaque(false);
         cargarCombo();
         cargarTabla();
-
+        darleFormaAlComboBox();
     }
 
     /**
@@ -38,30 +56,50 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelRound1 = new universidadejemplo.Vistas.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jCBmateria = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
-        jBsalir = new javax.swing.JButton();
+        btnCrear = new universidadejemplo.Vistas.PanelRound();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        panelRound2 = new universidadejemplo.Vistas.PanelRound();
+        jSeparator2 = new javax.swing.JSeparator();
 
-        jPanel1.setBackground(new java.awt.Color(78, 75, 114));
+        setPreferredSize(new java.awt.Dimension(510, 390));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        panelRound1.setBackground(new java.awt.Color(28, 27, 41));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Open Sans Medium", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(228, 228, 231));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado de Alumnos por Materia");
+        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 510, -1));
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Open Sans Medium", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(228, 228, 231));
         jLabel2.setText("Seleccione una materia:");
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 57, -1, -1));
 
+        jCBmateria.setBackground(new java.awt.Color(28, 27, 41));
+        jCBmateria.setFont(new java.awt.Font("Open Sans Medium", 0, 16)); // NOI18N
+        jCBmateria.setForeground(new java.awt.Color(228, 228, 231));
         jCBmateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBmateriaActionPerformed(evt);
             }
         });
+        panelRound1.add(jCBmateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 53, 247, -1));
 
-        jTabla.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTabla.setFont(new java.awt.Font("Open Sans Medium", 0, 12)); // NOI18N
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -75,72 +113,56 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTabla);
 
-        jBsalir.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jBsalir.setText("Salir");
-        jBsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBsalirActionPerformed(evt);
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 93, -1, 223));
+
+        btnCrear.setBackground(new java.awt.Color(88, 101, 242));
+        btnCrear.setRoundBottomLeft(40);
+        btnCrear.setRoundBottomRight(40);
+        btnCrear.setRoundTopLeft(40);
+        btnCrear.setRoundTopRight(40);
+        btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrearMouseExited(evt);
             }
         });
+        btnCrear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(34, 34, 34)
-                                .addComponent(jCBmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jBsalir)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)))))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jCBmateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBsalir)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        jLabel3.setBackground(new java.awt.Color(88, 101, 242));
+        jLabel3.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(228, 228, 231));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Salir");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCrear.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 130, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        panelRound1.add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 330, 130, 35));
+        btnCrear.getAccessibleContext().setAccessibleDescription("");
+
+        jSeparator1.setBackground(new java.awt.Color(228, 228, 231));
+        panelRound1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 250, -1));
+
+        panelRound2.setBackground(new java.awt.Color(41, 40, 65));
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setVerifyInputWhenFocusTarget(false);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator2.setBackground(new java.awt.Color(228, 228, 231));
+        jSeparator2.setForeground(new java.awt.Color(228, 228, 231));
+        panelRound2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 47, 510, 10));
+
+        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 50));
+
+        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jBsalirActionPerformed
 
     private void jCBmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBmateriaActionPerformed
         inscripcion = new InscripcionData();
@@ -155,18 +177,34 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
 //            System.out.println("Nombre del Alumno: " + prod.getNombre());
             modelo.addRow(new Object[]{prod.getIdAlumno(), prod.getDni(), prod.getApellido(), prod.getNombre()});
         }
-        
+
     }//GEN-LAST:event_jCBmateriaActionPerformed
+
+    private void btnCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseEntered
+        btnCrear.setBackground(new Color(121, 131, 245));
+    }//GEN-LAST:event_btnCrearMouseEntered
+
+    private void btnCrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseExited
+        btnCrear.setBackground(new Color(88, 101, 242));
+    }//GEN-LAST:event_btnCrearMouseExited
+
+    private void btnCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCrearMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBsalir;
+    private universidadejemplo.Vistas.PanelRound btnCrear;
     private javax.swing.JComboBox<Materia> jCBmateria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTabla;
+    private universidadejemplo.Vistas.PanelRound panelRound1;
+    private universidadejemplo.Vistas.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 
     public void cargarCombo() {
@@ -189,5 +227,89 @@ public class ConsultaAlumnoMateria extends javax.swing.JInternalFrame {
         for (; f >= 0; f--) {
             modelo.removeRow(f);
         }
+    }
+
+    private void darleFormaAlComboBox() {
+        jCBmateria.setUI(new BasicComboBoxUI() {
+            private boolean isPopupVisible = false;
+            private boolean isImageChanged = false;
+
+            @Override
+            protected JButton createArrowButton() {
+                JButton arrowButton = new JButton(new ImageIcon("src/img/Recurso 2.png"));
+
+                arrowButton.setBorderPainted(false);
+                arrowButton.setContentAreaFilled(false);
+                arrowButton.setFocusPainted(false);
+                arrowButton.setOpaque(false);
+
+                arrowButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (!isPopupVisible) {
+                            isImageChanged = !isImageChanged;
+                            if (isImageChanged) {
+                                arrowButton.setIcon(new ImageIcon("src/img/Recurso 3.png"));
+                            } else {
+                                arrowButton.setIcon(new ImageIcon("src/img/Recurso 2.png"));
+                            }
+                        }
+                    }
+                });
+                jCBmateria.addMouseListener(new MouseListener() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        if (!isPopupVisible) {
+                            isImageChanged = !isImageChanged;
+                            if (isImageChanged) {
+                                arrowButton.setIcon(new ImageIcon("src/img/Recurso 3.png"));
+                            } else {
+                                arrowButton.setIcon(new ImageIcon("src/img/Recurso 2.png"));
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+                    }
+
+                });
+
+                jCBmateria.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (!isPopupVisible) {
+                            isImageChanged = !isImageChanged;
+                            if (isImageChanged) {
+                                arrowButton.setIcon(new ImageIcon("src/img/Recurso 3.png"));
+                            } else {
+                                arrowButton.setIcon(new ImageIcon("src/img/Recurso 2.png"));
+                            }
+                        }
+                    }
+
+                });
+
+                return arrowButton;
+            }
+
+        });
+
+        jCBmateria.setForeground(new Color(228, 228, 231));
+        jCBmateria.setFocusable(false);
+        DefaultListCellRenderer renderer = new DefaultListCellRenderer();
+        renderer.setHorizontalAlignment(SwingConstants.CENTER);
     }
 }

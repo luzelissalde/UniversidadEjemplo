@@ -532,7 +532,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
 
     private void btnCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseClicked
         if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase(String.valueOf(jPasswordField2.getPassword()))) {
-            if (!jTxtNombre.getText().isEmpty() && !jTxtUsuario.getText().isEmpty() && !jTxtMail.getText().isEmpty() && jTxtRespuesta.getText().isEmpty()) {
+            if (!jTxtNombre.getText().isEmpty() ||!jTxtUsuario.getText().isEmpty() ||!jTxtMail.getText().isEmpty() || !jTxtRespuesta.getText().isEmpty()||!jTxtApellido.getText().isEmpty()) {
                 loginData = new LoginData();
                 Login login = new Login(jTxtUsuario.getText(), String.valueOf(jPasswordField1.getPassword()), jTxtNombre.getText(), jTxtApellido.getText(), jTxtMail.getText(), String.valueOf(jComboBox1.getSelectedItem()), jTxtRespuesta.getText());
                 loginData.guardarLogin(login);

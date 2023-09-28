@@ -43,7 +43,7 @@ public class MateriaData {
   
     public Materia buscarMateria(int id) {
         Materia materia = null;
-        String sql = "SELECT idMateria, nombre, año, estado FROM materia WHERE idMateria = ? AND estado = 1";
+        String sql = "SELECT idMateria, nombre, año, estado FROM materia WHERE idMateria = ? ";
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
@@ -103,6 +103,7 @@ public class MateriaData {
             int fila = ps.executeUpdate();
 
             if (fila == 1) {
+                
                 JOptionPane.showMessageDialog(null, " Se eliminó la materia.");
             }
             ps.close();

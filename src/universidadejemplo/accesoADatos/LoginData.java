@@ -23,7 +23,7 @@ public class LoginData {
     
     public void guardarLogin(Login login) {
 
-        String sql = "INSERT INTO login (idLogin, usuario, contraseña, nombre , apellido , mail, pregunta, respuesta) VALUES (?,?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO login (usuario, contraseña, nombre , apellido , mail, pregunta, respuesta) VALUES (?,?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, login.getUsuario());

@@ -7,6 +7,7 @@ package universidadejemplo.Vistas;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import universidadejemplo.Entidades.*;
 import universidadejemplo.accesoADatos.*;
 
@@ -99,6 +100,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jTxNombreMateria.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jTxNombreMateria.setForeground(new java.awt.Color(228, 228, 231));
         jTxNombreMateria.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTxNombreMateria.setCaretColor(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxNombreMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 324, -1));
 
         jBBuscar.setBackground(new java.awt.Color(28, 27, 41));
@@ -116,12 +118,14 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jTxCodigo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jTxCodigo.setForeground(new java.awt.Color(228, 228, 231));
         jTxCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTxCodigo.setCaretColor(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 165, -1));
 
         jTxAnio.setBackground(new java.awt.Color(28, 27, 41));
         jTxAnio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jTxAnio.setForeground(new java.awt.Color(228, 228, 231));
         jTxAnio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTxAnio.setCaretColor(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 199, -1));
 
         btnAgregar.setBackground(new java.awt.Color(88, 101, 242));

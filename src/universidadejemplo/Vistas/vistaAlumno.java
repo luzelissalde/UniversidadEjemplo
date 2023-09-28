@@ -95,16 +95,18 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(228, 228, 231));
         jLabel5.setText("Nombre");
-        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 94, -1));
+        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 94, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(228, 228, 231));
         jLabel6.setText("Fecha de Nacimiento");
-        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 179, 28));
+        panelRound2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 179, 28));
 
         jTxApellido.setBackground(new java.awt.Color(28, 27, 41));
         jTxApellido.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
         jTxApellido.setForeground(new java.awt.Color(228, 228, 231));
+        jTxApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTxApellido.setCaretColor(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 199, -1));
 
         jBBuscar.setBackground(new java.awt.Color(28, 27, 41));
@@ -121,17 +123,22 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jTxDocumento.setBackground(new java.awt.Color(28, 27, 41));
         jTxDocumento.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
         jTxDocumento.setForeground(new java.awt.Color(228, 228, 231));
+        jTxDocumento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTxDocumento.setCaretColor(new java.awt.Color(228, 228, 231));
+        jTxDocumento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         panelRound2.add(jTxDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 165, -1));
 
         jTxNombre.setBackground(new java.awt.Color(28, 27, 41));
         jTxNombre.setFont(new java.awt.Font("Open Sans Medium", 0, 18)); // NOI18N
         jTxNombre.setForeground(new java.awt.Color(228, 228, 231));
-        panelRound2.add(jTxNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 199, -1));
+        jTxNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTxNombre.setCaretColor(new java.awt.Color(228, 228, 231));
+        panelRound2.add(jTxNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 199, -1));
 
         jDFecha.setBackground(new java.awt.Color(28, 27, 41));
         jDFecha.setForeground(new java.awt.Color(228, 228, 231));
         jDFecha.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        panelRound2.add(jDFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, 28));
+        panelRound2.add(jDFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 160, 28));
 
         btnEliminar.setBackground(new java.awt.Color(88, 101, 242));
         btnEliminar.setRoundBottomLeft(40);
@@ -160,7 +167,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEliminar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        panelRound2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 90, 40));
+        panelRound2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 90, 40));
 
         btnGuardar.setBackground(new java.awt.Color(88, 101, 242));
         btnGuardar.setRoundBottomLeft(40);
@@ -189,7 +196,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        panelRound2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 90, 40));
+        panelRound2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 90, 40));
 
         btnSalir.setBackground(new java.awt.Color(88, 101, 242));
         btnSalir.setRoundBottomLeft(40);
@@ -218,7 +225,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        panelRound2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 90, 40));
+        panelRound2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 90, 40));
 
         btnAregar.setBackground(new java.awt.Color(88, 101, 242));
         btnAregar.setRoundBottomLeft(40);
@@ -248,9 +255,9 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAregar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 40));
 
-        panelRound2.add(btnAregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 40));
+        panelRound2.add(btnAregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 80, 40));
 
-        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 460, 360));
+        getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 460, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

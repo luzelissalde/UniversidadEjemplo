@@ -134,6 +134,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField1.setText("Ingrese su password");
         jPasswordField1.setBorder(null);
+        jPasswordField1.setCaretColor(new java.awt.Color(228, 228, 231));
         jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jPasswordField1FocusGained(evt);
@@ -154,6 +155,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jTxtNombre.setForeground(new java.awt.Color(228, 228, 231));
         jTxtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTxtNombre.setBorder(null);
+        jTxtNombre.setCaretColor(new java.awt.Color(228, 228, 231));
         jTxtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTxtNombreFocusGained(evt);
@@ -210,6 +212,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jTxtApellido.setForeground(new java.awt.Color(228, 228, 231));
         jTxtApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTxtApellido.setBorder(null);
+        jTxtApellido.setCaretColor(new java.awt.Color(228, 228, 231));
         jTxtApellido.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTxtApellidoFocusGained(evt);
@@ -234,6 +237,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jTxtMail.setForeground(new java.awt.Color(228, 228, 231));
         jTxtMail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTxtMail.setBorder(null);
+        jTxtMail.setCaretColor(new java.awt.Color(228, 228, 231));
         jTxtMail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTxtMailFocusGained(evt);
@@ -258,6 +262,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jTxtUsuario.setForeground(new java.awt.Color(228, 228, 231));
         jTxtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTxtUsuario.setBorder(null);
+        jTxtUsuario.setCaretColor(new java.awt.Color(228, 228, 231));
         jTxtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTxtUsuarioFocusGained(evt);
@@ -283,6 +288,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jPasswordField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField2.setText("Repita el password");
         jPasswordField2.setBorder(null);
+        jPasswordField2.setCaretColor(new java.awt.Color(228, 228, 231));
         jPasswordField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jPasswordField2FocusGained(evt);
@@ -328,6 +334,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jTxtRespuesta.setForeground(new java.awt.Color(228, 228, 231));
         jTxtRespuesta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTxtRespuesta.setBorder(null);
+        jTxtRespuesta.setCaretColor(new java.awt.Color(228, 228, 231));
         jTxtRespuesta.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTxtRespuestaFocusGained(evt);

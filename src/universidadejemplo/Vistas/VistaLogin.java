@@ -56,6 +56,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLerror = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jlOlvidaste = new javax.swing.JLabel();
         panelRound3 = new universidadejemplo.Vistas.PanelRound();
         panelRound4 = new universidadejemplo.Vistas.PanelRound();
         panelRound5 = new universidadejemplo.Vistas.PanelRound();
@@ -83,6 +84,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField1.setText("Ingrese su password");
         jPasswordField1.setBorder(null);
+        jPasswordField1.setCaretColor(new java.awt.Color(228, 228, 231));
         jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jPasswordField1FocusGained(evt);
@@ -103,6 +105,7 @@ public class VistaLogin extends javax.swing.JFrame {
         jTxtUsuario.setForeground(new java.awt.Color(228, 228, 231));
         jTxtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTxtUsuario.setBorder(null);
+        jTxtUsuario.setCaretColor(new java.awt.Color(228, 228, 231));
         jTxtUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTxtUsuarioFocusGained(evt);
@@ -192,6 +195,24 @@ public class VistaLogin extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Inicio de sesion");
         panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 20, 400, -1));
+
+        jlOlvidaste.setFont(new java.awt.Font("Open Sans Medium", 0, 12)); // NOI18N
+        jlOlvidaste.setForeground(new java.awt.Color(228, 228, 231));
+        jlOlvidaste.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlOlvidaste.setText("¿olvidaste la contraseña?");
+        jlOlvidaste.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jlOlvidaste.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jlOlvidasteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jlOlvidasteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jlOlvidasteMouseExited(evt);
+            }
+        });
+        panelRound2.add(jlOlvidaste, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 400, -1));
 
         panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 400, 310));
 
@@ -386,6 +407,21 @@ public class VistaLogin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnCrearMouseClicked
 
+    private void jlOlvidasteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlOlvidasteMouseEntered
+        jlOlvidaste.setForeground(new Color(255,184,105));
+    }//GEN-LAST:event_jlOlvidasteMouseEntered
+
+    private void jlOlvidasteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlOlvidasteMouseExited
+        
+        jlOlvidaste.setForeground(new Color(228,228,231));
+    }//GEN-LAST:event_jlOlvidasteMouseExited
+
+    private void jlOlvidasteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlOlvidasteMouseClicked
+        VistaRecuperarPassword contrasena = new VistaRecuperarPassword();
+        contrasena.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jlOlvidasteMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private universidadejemplo.Vistas.PanelRound btnCrear;
@@ -399,6 +435,7 @@ public class VistaLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTxtUsuario;
+    private javax.swing.JLabel jlOlvidaste;
     private universidadejemplo.Vistas.PanelRound panelRound1;
     private universidadejemplo.Vistas.PanelRound panelRound2;
     private universidadejemplo.Vistas.PanelRound panelRound3;

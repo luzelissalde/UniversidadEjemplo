@@ -15,6 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import universidadejemplo.accesoADatos.*;
@@ -42,8 +43,20 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(this);
         panelRound2.requestFocus();
-        if (jTxtNombre.getText().isEmpty() || jTxtNombre.getText().equalsIgnoreCase("Ingrese su usuario")) {
-            jTxtNombre.setText("Ingrese su usuario");
+        if (jTxtNombre.getText().isEmpty() || jTxtNombre.getText().equalsIgnoreCase("Ingrese su Nombre")) {
+            jTxtNombre.setText("Ingrese su Nombre");
+        }
+        if (jTxtApellido.getText().isEmpty() || jTxtApellido.getText().equalsIgnoreCase("Ingrese su Apellido")) {
+            jTxtApellido.setText("Ingrese su Apellido");
+        }
+        if (jTxtMail.getText().isEmpty() || jTxtMail.getText().equalsIgnoreCase("Ingrese su Mail")) {
+            jTxtMail.setText("Ingrese su Mail");
+        }
+        if (jTxtUsuario.getText().isEmpty() || jTxtUsuario.getText().equalsIgnoreCase("Ingrese un Usuario")) {
+            jTxtUsuario.setText("Ingrese un Usuario");
+        }
+        if (jTxtRespuesta.getText().isEmpty() || jTxtRespuesta.getText().equalsIgnoreCase("Conteste a la pregunta elegida")) {
+            jTxtRespuesta.setText("Conteste a la pregunta elegida");
         }
         cargarCombo();
         darleFormaAlComboBox();
@@ -170,6 +183,9 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         btnCrear.setRoundTopLeft(40);
         btnCrear.setRoundTopRight(40);
         btnCrear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCrearMouseEntered(evt);
             }
@@ -265,7 +281,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         jPasswordField2.setFont(new java.awt.Font("Open Sans Medium", 0, 14)); // NOI18N
         jPasswordField2.setForeground(new java.awt.Color(228, 228, 231));
         jPasswordField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField2.setText("Ingrese su password");
+        jPasswordField2.setText("Repita el password");
         jPasswordField2.setBorder(null);
         jPasswordField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -298,7 +314,9 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         passwoe1.setText("Ingrese una contraseña");
         panelRound2.add(passwoe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 235, 400, -1));
 
+        jComboBox1.setBackground(new java.awt.Color(28, 27, 41));
         jComboBox1.setFont(new java.awt.Font("Open Sans Medium", 0, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 320, -1));
 
         jSRespuesta.setBackground(new java.awt.Color(228, 228, 231));
@@ -374,6 +392,8 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Ingrese su password")) {
             jPasswordField1.setText("");
         }
+        passwoe1.setText("Ingrese una Contraseña");
+        passwoe1.setForeground(new Color(228, 228, 231));
         jSeparator1.setForeground(new Color(228, 228, 231));
         jSeparator1.setBackground(new Color(228, 228, 231));
     }//GEN-LAST:event_jPasswordField1MouseClicked
@@ -409,96 +429,130 @@ public class VistaCrearLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_xMouseExited
 
     private void jTxtApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtApellidoFocusGained
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese su Apellido")) {
-            jTxtNombre.setText("");
+        if (jTxtApellido.getText().equalsIgnoreCase("Ingrese su Apellido")) {
+            jTxtApellido.setText("");
         }
     }//GEN-LAST:event_jTxtApellidoFocusGained
 
     private void jTxtApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtApellidoFocusLost
-        if (jTxtNombre.getText().isEmpty() || jTxtNombre.getText().equalsIgnoreCase("Ingrese su Apellido")) {
-            jTxtNombre.setText("Ingrese su Apellido");
+        if (jTxtApellido.getText().isEmpty() || jTxtApellido.getText().equalsIgnoreCase("Ingrese su Apellido")) {
+            jTxtApellido.setText("Ingrese su Apellido");
         }
     }//GEN-LAST:event_jTxtApellidoFocusLost
 
     private void jTxtApellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxtApellidoMouseClicked
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese su Apellido")) {
-            jTxtNombre.setText("");
+        if (jTxtApellido.getText().equalsIgnoreCase("Ingrese su Apellido")) {
+            jTxtApellido.setText("");
         }
         jSApellido.setForeground(new Color(228, 228, 231));
         jSApellido.setBackground(new Color(228, 228, 231));
     }//GEN-LAST:event_jTxtApellidoMouseClicked
 
     private void jTxtMailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtMailFocusGained
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese su Mail")) {
-            jTxtNombre.setText("");
+        if (jTxtMail.getText().equalsIgnoreCase("Ingrese su Mail")) {
+            jTxtMail.setText("");
         }
     }//GEN-LAST:event_jTxtMailFocusGained
 
     private void jTxtMailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtMailFocusLost
-        if (jTxtNombre.getText().isEmpty() || jTxtNombre.getText().equalsIgnoreCase("Ingrese su Mail")) {
-            jTxtNombre.setText("Ingrese su Mail");
+        if (jTxtMail.getText().isEmpty() || jTxtMail.getText().equalsIgnoreCase("Ingrese su Mail")) {
+            jTxtMail.setText("Ingrese su Mail");
         }
     }//GEN-LAST:event_jTxtMailFocusLost
 
     private void jTxtMailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxtMailMouseClicked
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese su Mail")) {
-            jTxtNombre.setText("");
+        if (jTxtMail.getText().equalsIgnoreCase("Ingrese su Mail")) {
+            jTxtMail.setText("");
         }
         jSMail.setForeground(new Color(228, 228, 231));
         jSMail.setBackground(new Color(228, 228, 231));
     }//GEN-LAST:event_jTxtMailMouseClicked
 
     private void jTxtUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtUsuarioFocusGained
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese un Usuario")) {
-            jTxtNombre.setText("");
+        if (jTxtUsuario.getText().equalsIgnoreCase("Ingrese un Usuario")) {
+            jTxtUsuario.setText("");
         }
     }//GEN-LAST:event_jTxtUsuarioFocusGained
 
     private void jTxtUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtUsuarioFocusLost
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese un Usuario")) {
-            jTxtNombre.setText("Ingrese un Usuario");
+        if (jTxtUsuario.getText().isEmpty() || jTxtUsuario.getText().equalsIgnoreCase("Ingrese un Usuario")) {
+            jTxtUsuario.setText("Ingrese un Usuario");
         }
     }//GEN-LAST:event_jTxtUsuarioFocusLost
 
     private void jTxtUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxtUsuarioMouseClicked
-        if (jTxtNombre.getText().equalsIgnoreCase("Ingrese un Usuario")) {
-            jTxtNombre.setText("");
+        if (jTxtUsuario.getText().equalsIgnoreCase("Ingrese un Usuario")) {
+            jTxtUsuario.setText("");
         }
         jSUsuario.setForeground(new Color(228, 228, 231));
         jSUsuario.setBackground(new Color(228, 228, 231));
     }//GEN-LAST:event_jTxtUsuarioMouseClicked
 
     private void jPasswordField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField2FocusGained
-        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Repita el password")) {
-            jPasswordField1.setText("");
+        if (String.valueOf(jPasswordField2.getPassword()).equalsIgnoreCase("Repita el password")) {
+            jPasswordField2.setText("");
         }
     }//GEN-LAST:event_jPasswordField2FocusGained
 
     private void jPasswordField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField2FocusLost
-        if (String.valueOf(jPasswordField1.getPassword()).isEmpty() || String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Repita el password")) {
-            jPasswordField1.setText("Repita el password");
+        if (String.valueOf(jPasswordField2.getPassword()).isEmpty() || String.valueOf(jPasswordField2.getPassword()).equalsIgnoreCase("Repita el password")) {
+            jPasswordField2.setText("Repita el password");
         }
     }//GEN-LAST:event_jPasswordField2FocusLost
 
     private void jPasswordField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField2MouseClicked
-        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase("Repita el password")) {
-            jPasswordField1.setText("");
+        if (String.valueOf(jPasswordField2.getPassword()).equalsIgnoreCase("Repita el password")) {
+            jPasswordField2.setText("");
         }
+        passwoe1.setText("Repita el Contraseña");
+        passwoe1.setForeground(new Color(228, 228, 231));
         jSeparator2.setForeground(new Color(228, 228, 231));
         jSeparator2.setBackground(new Color(228, 228, 231));
     }//GEN-LAST:event_jPasswordField2MouseClicked
 
     private void jTxtRespuestaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtRespuestaFocusGained
-        // TODO add your handling code here:
+        if (jTxtRespuesta.getText().equalsIgnoreCase("Conteste a la pregunta elegida")) {
+            jTxtRespuesta.setText("");
+        }
     }//GEN-LAST:event_jTxtRespuestaFocusGained
 
     private void jTxtRespuestaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTxtRespuestaFocusLost
-        // TODO add your handling code here:
+        if (jTxtRespuesta.getText().isEmpty() || jTxtRespuesta.getText().equalsIgnoreCase("Conteste a la pregunta elegida")) {
+            jTxtRespuesta.setText("Conteste a la pregunta elegida");
+        }
     }//GEN-LAST:event_jTxtRespuestaFocusLost
 
     private void jTxtRespuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxtRespuestaMouseClicked
-        // TODO add your handling code here:
+        if (jTxtRespuesta.getText().equalsIgnoreCase("Conteste a la pregunta elegida")) {
+            jTxtRespuesta.setText("");
+        }
+        jSRespuesta.setForeground(new Color(228, 228, 231));
+        jSRespuesta.setBackground(new Color(228, 228, 231));
     }//GEN-LAST:event_jTxtRespuestaMouseClicked
+
+    private void btnCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearMouseClicked
+        if (String.valueOf(jPasswordField1.getPassword()).equalsIgnoreCase(String.valueOf(jPasswordField2.getPassword()))) {
+            if (!jTxtNombre.getText().isEmpty() && !jTxtUsuario.getText().isEmpty() && !jTxtMail.getText().isEmpty() && jTxtRespuesta.getText().isEmpty()) {
+                loginData = new LoginData();
+                Login login = new Login(jTxtUsuario.getText(), String.valueOf(jPasswordField1.getPassword()), jTxtNombre.getText(), jTxtApellido.getText(), jTxtMail.getText(), String.valueOf(jComboBox1.getSelectedItem()), jTxtRespuesta.getText());
+                loginData.guardarLogin(login);
+                VistaLogin vista = new VistaLogin();
+                vista.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Verifique que alguno de los campos no este vacios");
+            }
+        } else {
+            passwoe.setText("Las contraseñas no coiciden");
+            passwoe.setForeground(Color.red);
+            passwoe1.setText("Las contraseñas no coiciden");
+            passwoe1.setForeground(Color.red);
+            jSeparator1.setBackground(Color.red);
+            jSeparator2.setBackground(Color.red);
+            jSeparator1.setForeground(Color.red);
+            jSeparator2.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_btnCrearMouseClicked
 
     public void cargarCombo() {
         DefaultComboBoxModel<String> mdlCombo = new DefaultComboBoxModel(preguntas().toArray());
@@ -515,7 +569,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
 
         return prefuntas;
     }
-    
+
     private void darleFormaAlComboBox() {
         jComboBox1.setUI(new BasicComboBoxUI() {
             private boolean isPopupVisible = false;
@@ -599,6 +653,7 @@ public class VistaCrearLogin extends javax.swing.JFrame {
         DefaultListCellRenderer renderer = new DefaultListCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator JSnombre;

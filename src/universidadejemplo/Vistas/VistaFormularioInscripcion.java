@@ -42,6 +42,7 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
         darleFormaAlComboBox();
+        panelRound1.requestFocus();
 
     }
 
@@ -144,6 +145,9 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
         });
         panelRound1.add(jRMatNoInscriptas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 170, -1));
 
+        jTabla.setBackground(new java.awt.Color(28, 27, 41));
+        jTabla.setFont(new java.awt.Font("Open Sans Medium", 0, 12)); // NOI18N
+        jTabla.setForeground(new java.awt.Color(228, 228, 231));
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -155,6 +159,8 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTabla.setSelectionBackground(new java.awt.Color(28, 27, 41));
+        jTabla.setSelectionForeground(new java.awt.Color(228, 228, 231));
         jScrollPane1.setViewportView(jTabla);
 
         panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 440, 184));
@@ -311,43 +317,44 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRMatNoInscriptasActionPerformed
 
     private void jRMatNoInscriptasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRMatNoInscriptasFocusGained
-        inscripcion = new InscripcionData();
-//        materia = new MateriaData();
-        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
-
-        borrarFilas();
-        for (Materia prod : inscripcion.obtenerMateriasNOCursadas(alumn.getIdAlumno())) {
-
-            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
-
-        }
-        for (Component component : btnInscribir.getComponents()) {
-            component.setEnabled(true);
-        }
-        btnInscribir.setEnabled(true);
-        jLabel3.setEnabled(true);
-        jAnular.setEnabled(false);
-        jLabel4.setEnabled(false);
+//        inscripcion = new InscripcionData();
+////        materia = new MateriaData();
+//        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+//
+//        borrarFilas();
+//        for (Materia prod : inscripcion.obtenerMateriasNOCursadas(alumn.getIdAlumno())) {
+//
+//            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+//
+//        }
+//        for (Component component : btnInscribir.getComponents()) {
+//            component.setEnabled(true);
+//        }
+//        btnInscribir.setEnabled(true);
+//        jLabel3.setEnabled(true);
+//        jAnular.setEnabled(false);
+//        jLabel4.setEnabled(false);
     }//GEN-LAST:event_jRMatNoInscriptasFocusGained
 
     private void jRMatInscriptasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jRMatInscriptasFocusGained
-        inscripcion = new InscripcionData();
-        materia = new MateriaData();
-        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
-
-        borrarFilas();
-        for (Materia prod : inscripcion.obtenerMateriasCursadas(alumn.getIdAlumno())) {
-
-            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
-
-        }
-        btnInscribir.setEnabled(false);
-        jLabel3.setEnabled(false);
-        jAnular.setEnabled(true);
-        jLabel4.setEnabled(true);
+//        inscripcion = new InscripcionData();
+//        materia = new MateriaData();
+//        Alumno alumn = (Alumno) cbAlumnos.getSelectedItem();
+//
+//        borrarFilas();
+//        for (Materia prod : inscripcion.obtenerMateriasCursadas(alumn.getIdAlumno())) {
+//
+//            modelo.addRow(new Object[]{prod.getIdMateria(), prod.getNombre(), prod.getAnio()});
+//
+//        }
+//        btnInscribir.setEnabled(false);
+//        jLabel3.setEnabled(false);
+//        jAnular.setEnabled(true);
+//        jLabel4.setEnabled(true);
     }//GEN-LAST:event_jRMatInscriptasFocusGained
 
     private void cbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlumnosActionPerformed
+       
         if (jRMatInscriptas.isSelected()) {
             inscripcion = new InscripcionData();
             materia = new MateriaData();
@@ -462,11 +469,12 @@ public class VistaFormularioInscripcion extends javax.swing.JInternalFrame {
     }
 
     public void cargarTabla() {
-
+        
         jTabla.setModel(modelo);
         modelo.addColumn("Codigo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Año");
+        
     }
 
     private void borrarFilas() {

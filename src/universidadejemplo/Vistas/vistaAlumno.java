@@ -107,6 +107,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
 
         jBBuscar.setBackground(new java.awt.Color(28, 27, 41));
         jBBuscar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jBBuscar.setForeground(new java.awt.Color(228, 228, 231));
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +155,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Eliminar");
         jLabel8.setAlignmentX(40.0F);
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
         panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 90, 40));
@@ -182,6 +184,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Guardar");
         jLabel9.setAlignmentX(40.0F);
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
         panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 90, 40));
@@ -210,6 +213,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Salir");
         jLabel10.setAlignmentX(40.0F);
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
         panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 90, 40));
@@ -239,6 +243,7 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Agregar");
         jLabel11.setAlignmentX(40.0F);
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 40));
 
         panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 80, 40));
@@ -275,11 +280,15 @@ public class vistaAlumno extends javax.swing.JInternalFrame {
             try {
                 jorge = alumnos.buscarAlumnoPorDni(Integer.parseInt(jTxDocumento.getText()));
                 alumnos.eliminarAlumno(jorge.getIdAlumno());
-                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: " + jorge.getNombre() + jorge.getApellido());
+//                JOptionPane.showMessageDialog(null, "Se dio de baja correctamente al alumno: " + jorge.getNombre() + jorge.getApellido());
             } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
+//                JOptionPane.showMessageDialog(null, "El alumno/a ingresado no existe o es incorrecto");
             }
         }
+        jTxNombre.setText("");
+        jTxApellido.setText("");
+        jTxDocumento.setText("");
+        jDFecha.setDate(Date.valueOf(""));
     }//GEN-LAST:event_btnCrear2MouseClicked
 
     private void btnCrear2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseEntered

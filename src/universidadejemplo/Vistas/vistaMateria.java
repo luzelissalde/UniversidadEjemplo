@@ -20,6 +20,7 @@ public class vistaMateria extends javax.swing.JInternalFrame {
     
     public vistaMateria() {
         initComponents();
+        setOpaque(false);
         setClosable(true);
         
     }
@@ -43,13 +44,13 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jBBuscar = new javax.swing.JButton();
         jTxCodigo = new javax.swing.JTextField();
         jTxAnio = new javax.swing.JTextField();
-        btnCrear2 = new universidadejemplo.Vistas.PanelRound();
+        btnAgregar = new universidadejemplo.Vistas.PanelRound();
         jLabel8 = new javax.swing.JLabel();
-        btnCrear3 = new universidadejemplo.Vistas.PanelRound();
+        btnEliminar = new universidadejemplo.Vistas.PanelRound();
         jLabel9 = new javax.swing.JLabel();
-        btnCrear4 = new universidadejemplo.Vistas.PanelRound();
+        btnGuardar = new universidadejemplo.Vistas.PanelRound();
         jLabel10 = new javax.swing.JLabel();
-        btnCrear5 = new universidadejemplo.Vistas.PanelRound();
+        btnSalir = new universidadejemplo.Vistas.PanelRound();
         jLabel11 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,23 +119,23 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jTxAnio.setForeground(new java.awt.Color(228, 228, 231));
         panelRound2.add(jTxAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 199, -1));
 
-        btnCrear2.setBackground(new java.awt.Color(88, 101, 242));
-        btnCrear2.setRoundBottomLeft(40);
-        btnCrear2.setRoundBottomRight(40);
-        btnCrear2.setRoundTopLeft(40);
-        btnCrear2.setRoundTopRight(40);
-        btnCrear2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAgregar.setBackground(new java.awt.Color(88, 101, 242));
+        btnAgregar.setRoundBottomLeft(40);
+        btnAgregar.setRoundBottomRight(40);
+        btnAgregar.setRoundTopLeft(40);
+        btnAgregar.setRoundTopRight(40);
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCrear2MouseClicked(evt);
+                btnAgregarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrear2MouseEntered(evt);
+                btnAgregarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrear2MouseExited(evt);
+                btnAgregarMouseExited(evt);
             }
         });
-        btnCrear2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnAgregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setBackground(new java.awt.Color(88, 101, 242));
         jLabel8.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
@@ -142,27 +143,28 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Agregar");
         jLabel8.setAlignmentX(40.0F);
-        btnCrear2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregar.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        panelRound2.add(btnCrear2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 100, 40));
+        panelRound2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 100, 40));
 
-        btnCrear3.setBackground(new java.awt.Color(88, 101, 242));
-        btnCrear3.setRoundBottomLeft(40);
-        btnCrear3.setRoundBottomRight(40);
-        btnCrear3.setRoundTopLeft(40);
-        btnCrear3.setRoundTopRight(40);
-        btnCrear3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminar.setBackground(new java.awt.Color(88, 101, 242));
+        btnEliminar.setRoundBottomLeft(40);
+        btnEliminar.setRoundBottomRight(40);
+        btnEliminar.setRoundTopLeft(40);
+        btnEliminar.setRoundTopRight(40);
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCrear3MouseClicked(evt);
+                btnEliminarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrear3MouseEntered(evt);
+                btnEliminarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrear3MouseExited(evt);
+                btnEliminarMouseExited(evt);
             }
         });
-        btnCrear3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnEliminar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setBackground(new java.awt.Color(88, 101, 242));
         jLabel9.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
@@ -170,27 +172,28 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Eliminar");
         jLabel9.setAlignmentX(40.0F);
-        btnCrear3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        panelRound2.add(btnCrear3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 100, 40));
+        panelRound2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 100, 40));
 
-        btnCrear4.setBackground(new java.awt.Color(88, 101, 242));
-        btnCrear4.setRoundBottomLeft(40);
-        btnCrear4.setRoundBottomRight(40);
-        btnCrear4.setRoundTopLeft(40);
-        btnCrear4.setRoundTopRight(40);
-        btnCrear4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGuardar.setBackground(new java.awt.Color(88, 101, 242));
+        btnGuardar.setRoundBottomLeft(40);
+        btnGuardar.setRoundBottomRight(40);
+        btnGuardar.setRoundTopLeft(40);
+        btnGuardar.setRoundTopRight(40);
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCrear4MouseClicked(evt);
+                btnGuardarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrear4MouseEntered(evt);
+                btnGuardarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrear4MouseExited(evt);
+                btnGuardarMouseExited(evt);
             }
         });
-        btnCrear4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnGuardar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setBackground(new java.awt.Color(88, 101, 242));
         jLabel10.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
@@ -198,27 +201,28 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Guardar");
         jLabel10.setAlignmentX(40.0F);
-        btnCrear4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        panelRound2.add(btnCrear4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 100, 40));
+        panelRound2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 100, 40));
 
-        btnCrear5.setBackground(new java.awt.Color(88, 101, 242));
-        btnCrear5.setRoundBottomLeft(40);
-        btnCrear5.setRoundBottomRight(40);
-        btnCrear5.setRoundTopLeft(40);
-        btnCrear5.setRoundTopRight(40);
-        btnCrear5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSalir.setBackground(new java.awt.Color(88, 101, 242));
+        btnSalir.setRoundBottomLeft(40);
+        btnSalir.setRoundBottomRight(40);
+        btnSalir.setRoundTopLeft(40);
+        btnSalir.setRoundTopRight(40);
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCrear5MouseClicked(evt);
+                btnSalirMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrear5MouseEntered(evt);
+                btnSalirMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrear5MouseExited(evt);
+                btnSalirMouseExited(evt);
             }
         });
-        btnCrear5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnSalir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setBackground(new java.awt.Color(88, 101, 242));
         jLabel11.setFont(new java.awt.Font("Open Sans SemiBold", 0, 18)); // NOI18N
@@ -226,9 +230,10 @@ public class vistaMateria extends javax.swing.JInternalFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Salir");
         jLabel11.setAlignmentX(40.0F);
-        btnCrear5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 40));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 80, 40));
 
-        panelRound2.add(btnCrear5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 100, 40));
+        panelRound2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 100, 40));
 
         getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 460, 290));
 
@@ -237,44 +242,57 @@ public class vistaMateria extends javax.swing.JInternalFrame {
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         materia = new MateriaData();
-        if (jTxCodigo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese el codigo correcto");
-        } else {
+        if (jTxCodigo.getText().isEmpty() && jTxNombreMateria.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese un codigo o materia");
+        } else if(!jTxCodigo.getText().isEmpty()) {
             try {
                 Materia mate = materia.buscarMateria(Integer.parseInt(jTxCodigo.getText()));
                 jTxNombreMateria.setText(mate.getNombre());
                 jTxAnio.setText(String.valueOf(mate.getAnio()));
 //                jRadioEstadoMateria.setSelected(mate.isActivo());
             } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "La materia ingresado no existe o es incorrecto el codigo");
+//                JOptionPane.showMessageDialog(null, "La materia ingresado no existe o es incorrecto el codigo");
             }
         }
+//        else if(!jTxNombreMateria.getText().isEmpty()) {
+//            try {
+//                Materia mate = materia.buscarMateria(Integer.parseInt(jTxCodigo.getText()));
+//                jTxNombreMateria.setText(mate.getNombre());
+//                jTxAnio.setText(String.valueOf(mate.getAnio()));
+////                jRadioEstadoMateria.setSelected(mate.isActivo());
+//            } catch (NullPointerException e) {
+//                JOptionPane.showMessageDialog(null, "La materia ingresado no existe o es incorrecto el codigo");
+//            }
+//        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
-    private void btnCrear2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseClicked
+    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
         materia = new MateriaData();
         if (jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
-        } else {
+        } else if(!jTxCodigo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor deje el codigo vacio");
+        }else{
             try {
                 Materia mate = new Materia(jTxNombreMateria.getText(), Integer.parseInt(jTxAnio.getText()), true);
                 materia.guardarMateria(mate);
+                jTxCodigo.setText(String.valueOf(mate.getIdMateria()));
             } catch (HeadlessException | NumberFormatException e) {
                 
-                JOptionPane.showMessageDialog(null, "Error al cargar el materia" + e.getMessage());
+//                JOptionPane.showMessageDialog(null, "Error al cargar el materia" + e.getMessage());
             }
         }
-    }//GEN-LAST:event_btnCrear2MouseClicked
+    }//GEN-LAST:event_btnAgregarMouseClicked
 
-    private void btnCrear2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseEntered
-        btnCrear2.setBackground(new Color(121, 131, 245));
-    }//GEN-LAST:event_btnCrear2MouseEntered
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+        btnAgregar.setBackground(new Color(121, 131, 245));
+    }//GEN-LAST:event_btnAgregarMouseEntered
 
-    private void btnCrear2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear2MouseExited
-        btnCrear2.setBackground(new Color(88, 101, 242));
-    }//GEN-LAST:event_btnCrear2MouseExited
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        btnAgregar.setBackground(new Color(88, 101, 242));
+    }//GEN-LAST:event_btnAgregarMouseExited
 
-    private void btnCrear3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseClicked
+    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
         materia = new MateriaData();
         if (jTxCodigo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el codigo de la materia correcto");
@@ -282,20 +300,20 @@ public class vistaMateria extends javax.swing.JInternalFrame {
             try {
                 materia.eliminarMateria(Integer.parseInt(jTxCodigo.getText()));
             } catch (NullPointerException e) {
-                JOptionPane.showMessageDialog(null, "La materia ingresada no existe o es incorrecta");
+//                JOptionPane.showMessageDialog(null, "La materia ingresada no existe o es incorrecta");
             }
         }
-    }//GEN-LAST:event_btnCrear3MouseClicked
+    }//GEN-LAST:event_btnEliminarMouseClicked
 
-    private void btnCrear3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseEntered
-        btnCrear3.setBackground(new Color(121, 131, 245));// TODO add your handling code here:
-    }//GEN-LAST:event_btnCrear3MouseEntered
+    private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
+        btnEliminar.setBackground(new Color(121, 131, 245));// TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarMouseEntered
 
-    private void btnCrear3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear3MouseExited
-       btnCrear3.setBackground(new Color(88, 101, 242));
-    }//GEN-LAST:event_btnCrear3MouseExited
+    private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
+       btnEliminar.setBackground(new Color(88, 101, 242));
+    }//GEN-LAST:event_btnEliminarMouseExited
 
-    private void btnCrear4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseClicked
+    private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
          materia = new MateriaData();
         if (jTxCodigo.getText().isEmpty() || jTxNombreMateria.getText().isEmpty() || jTxAnio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "revise que los campos no este vacios");
@@ -317,37 +335,37 @@ public class vistaMateria extends javax.swing.JInternalFrame {
                 }
             } catch (HeadlessException | NumberFormatException e) {
                 
-                JOptionPane.showMessageDialog(null, "Error al cargar la materia " + e.getMessage());
+//                JOptionPane.showMessageDialog(null, "Error al cargar la materia " + e.getMessage());
             }
         }
-    }//GEN-LAST:event_btnCrear4MouseClicked
+    }//GEN-LAST:event_btnGuardarMouseClicked
 
-    private void btnCrear4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseEntered
-        btnCrear4.setBackground(new Color(121, 131, 245));
-    }//GEN-LAST:event_btnCrear4MouseEntered
+    private void btnGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseEntered
+        btnGuardar.setBackground(new Color(121, 131, 245));
+    }//GEN-LAST:event_btnGuardarMouseEntered
 
-    private void btnCrear4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear4MouseExited
-        btnCrear4.setBackground(new Color(88, 101, 242));
-    }//GEN-LAST:event_btnCrear4MouseExited
+    private void btnGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseExited
+        btnGuardar.setBackground(new Color(88, 101, 242));
+    }//GEN-LAST:event_btnGuardarMouseExited
 
-    private void btnCrear5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseClicked
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         this.dispose();
-    }//GEN-LAST:event_btnCrear5MouseClicked
+    }//GEN-LAST:event_btnSalirMouseClicked
 
-    private void btnCrear5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseEntered
-       btnCrear5.setBackground(new Color(121, 131, 245));
-    }//GEN-LAST:event_btnCrear5MouseEntered
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+       btnSalir.setBackground(new Color(121, 131, 245));
+    }//GEN-LAST:event_btnSalirMouseEntered
 
-    private void btnCrear5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrear5MouseExited
-       btnCrear5.setBackground(new Color(88, 101, 242));
-    }//GEN-LAST:event_btnCrear5MouseExited
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+       btnSalir.setBackground(new Color(88, 101, 242));
+    }//GEN-LAST:event_btnSalirMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private universidadejemplo.Vistas.PanelRound btnCrear2;
-    private universidadejemplo.Vistas.PanelRound btnCrear3;
-    private universidadejemplo.Vistas.PanelRound btnCrear4;
-    private universidadejemplo.Vistas.PanelRound btnCrear5;
+    private universidadejemplo.Vistas.PanelRound btnAgregar;
+    private universidadejemplo.Vistas.PanelRound btnEliminar;
+    private universidadejemplo.Vistas.PanelRound btnGuardar;
+    private universidadejemplo.Vistas.PanelRound btnSalir;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
